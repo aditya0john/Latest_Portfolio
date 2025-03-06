@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { TextGenerateEffect } from "./aceternity/text-generate";
 import { FlipWords } from "./aceternity/flipWords";
 import Image from "next/image";
-import { CardSpotlight } from "./aceternity/CardHover";
 
 function About() {
   const words = ["better", "innovative", "beautiful", "modern"];

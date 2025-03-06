@@ -114,8 +114,8 @@ function Hero() {
                 textColor="text-red-600"
               />
               <p className="flex flex-col items-center justify-center lg:flex-row text-[20px] lg:text-[24px] bg-gradient-to-r from-orange-400 to-red-400 capitalize bg-clip-text text-transparent">
-                <span>wesbites that make you "Outshine",</span>{" "}
-                <span className="italic">websites that makes you "grow"</span>
+                <span>wesbites that make you &quotOutshine&quot,</span>{" "}
+                <span className="italic">websites that makes you &quotgrow&quot</span>
               </p>
             </span>
           </motion.h1>
