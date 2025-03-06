@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #190d05;
+  --foreground: #fcf5e5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #190d05;
+    --foreground: #fcf5e5;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in Chrome, Safari */
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* Hide scrollbar in IE, Edge */
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+.PrmText {
+  color: #fcf5e5 !important;
+}
+
+.SecText {
+  color: #190d05 !important;
+}
+
+.PrmColor {
+  background-color: #fcf5e5 !important;
+}
+
+.SecColor {
+  background-color: #190d05 !important;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.bottomCurve {
+  border-radius: 0 0 50% 50% / 0 0 10% 10%;
+  overflow: hidden;
+}
+
+.background {
+  animation: bgg linear 0.6s forwards;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  animation: moveToTop 2s ease-out forwards 3.8s;
+}
+
+@keyframes moveToTop {
+  from {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  to {
+    font-size: 3rem;
+    gap: 0;
+    left: 0;
+    top: 0;
+    transform: translate(4%, -14%);
+  }
+}
+
+/* Fades out name smoothly */
+.fade-out {
+  animation: fadeBlur 1.4s ease-out forwards 1s;
+}
+
+@keyframes fadeBlur {
+  from {
+    opacity: 1;
+    filter: blur(0px);
+  }
+  to {
+    opacity: 0;
+    filter: blur(6px);
+    visibility: hidden;
+  }
+}
+
+.redBall {
+  animation: rb ease-in 4s forwards;
+  position: relative;
+}
+
+@keyframes rb {
+  from {
+    right: 20%;
+    bottom: 10%;
+  }
+  50% {
+    right: -10%;
+    bottom: -10%;
+  }
+   {
+    @media screen min-width: 600px;
+    60% {
+      opacity: 0;
+    }
+  }
+
+  to {
+    right: -40%;
+    bottom: -24%;
+    transform: scale(1.24);
+  }
+}
+
+.fade {
+  animation: ff ease 1.4s forwards 2.2s;
+}
+
+@keyframes ff {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.move {
+  animation: mv linear 2s infinite;
+  position: relative;
+}
+
+@keyframes mv {
+  from {
+    left: 0;
+  }
+  50% {
+    left: 10%;
+  }
+  to {
+    left: 0;
+  }
+}
+
+.eyeball {
+  animation: retina linear 2s infinite;
+  position: relative;
+}
+
+@keyframes retina {
+  0% {
+    top: 0%;
+  }
+  10% {
+    top: 10%;
+  }
+  20% {
+    top: 14%;
+  }
+  30% {
+    top: 14%;
+  }
+  50% {
+    top: 14%;
+  }
+  70% {
+    top: 10%;
+  }
+  100% {
+    top: 0%;
+  }
+}
+
+.aurora-container {
+  width: 100%;
+  height: 100%;
+}
+
+.noise {
+  background-image: linear-gradient(to right, #ea580c, rgba(255, 255, 255, 0.4)),
+    url("/noise.svg");
+  background-repeat: repeat;
+  background-size: cover, auto; /* Cover for gradient, auto for noise */
+}
+
+.noiseLeft {
+  background-image: linear-gradient(to right, #ea580c, rgba(255, 255, 255, 0.4)),
+    url("/noise.svg");
+  background-repeat: repeat;
+  transform: rotate(-2deg);
+  background-size: cover, auto; /* Cover for gradient, auto for noise */
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="1080px" width="1920px">
+  <defs>
+    <pattern id="doodad" width="115.47" height="200" viewBox="0 0 34.64101615137755 60" patternUnits="userSpaceOnUse" patternTransform="rotate(135)">
+      <rect width="100%" height="100%" fill="rgba(252, 245, 229,1)"/>
+      <path d="M36.37 39L36.37 41L32.91 39L34.64 38L34.64 42L32.91 41L34.64 40z" stroke-linejoin="miter" fill="rgba(252, 0, 0,1)"/>
+      <path d="M19.05 49L19.05 51L15.59 49L17.32 48L17.32 52L15.59 51L17.32 50z" stroke-linejoin="miter" fill="rgba(252, 0, 0,1)"/>
+      <path d="M1.73 39L1.73 41L-1.73 39L0 38L0 42L-1.73 41L0 40z" stroke-linejoin="miter" fill="rgba(252, 0, 0,1)"/>
+      <path d="M1.73 19L1.73 21L-1.73 19L0 18L0 22L-1.73 21L0 20z" stroke-linejoin="miter" fill="rgba(252, 0, 0,1)"/>
+      <path d="M19.05 9L19.05 11L15.59 9L17.32 8L17.32 12L15.59 11L17.32 10z" stroke-linejoin="miter" fill="rgba(252, 0, 0,1)"/>
+      <path d="M36.37 19L36.37 21L32.91 19L34.64 18L34.64 22L32.91 21L34.64 20z" stroke-linejoin="miter" fill="rgba(252, 0, 0,1)"/>
+      <path d="M34.64 41L35.51 40.5L33.77 39.5L33.77 40.5L35.51 39.5L34.64 39L34.64 40z" stroke-linejoin="miter" fill="#ecc94b"/>
+      <path d="M17.32 51L18.19 50.5L16.45 49.5L16.45 50.5L18.19 49.5L17.32 49L17.32 50z" stroke-linejoin="miter" fill="#ecc94b"/>
+      <path d="M0 41L0.87 40.5L-0.87 39.5L-0.87 40.5L0.87 39.5L0 39L0 40z" stroke-linejoin="miter" fill="#ecc94b"/>
+      <path d="M0 21L0.87 20.5L-0.87 19.5L-0.87 20.5L0.87 19.5L0 19L0 20z" stroke-linejoin="miter" fill="#ecc94b"/>
+      <path d="M17.32 11L18.19 10.5L16.45 9.5L16.45 10.5L18.19 9.5L17.32 9L17.32 10z" stroke-linejoin="miter" fill="#ecc94b"/>
+      <path d="M34.64 21L35.51 20.5L33.77 19.5L33.77 20.5L35.51 19.5L34.64 19L34.64 20z" stroke-linejoin="miter" fill="#ecc94b"/>
+      <path d="M17.32 30L17.32 30L17.32 30L17.32 30L17.32 30L17.32 30L17.32 30z" stroke-linejoin="miter" fill="rgba(252, 0, 0,1)"/>
+    </pattern>
+  </defs>
+  <rect fill="url(#doodad)" height="200%" width="200%"/>
+</svg>
