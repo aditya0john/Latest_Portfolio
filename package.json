@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@react-three/fiber": "^9.0.4",
+    "@splinetool/react-spline": "^4.0.0",
     "@tabler/icons-react": "^3.30.0",
     "@types/three": "^0.174.0",
     "clsx": "^2.1.1",

@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { BackgroundBeamsWithCollision } from "./beams";
 import Image from "next/image";
-import { HeroHighlight } from "./aceternity/HeroHighlight";
 import { TextGenerateEffect } from "./aceternity/text-generate";
 
 function Hero() {
@@ -27,7 +26,7 @@ function Hero() {
   const Introduction = () => {
     return (
       <div className="flex items-center justify-center h-[50rem] lg:h-[38rem] bg-gradient-to-br from-[#FFF9F3] to-[#FFEFEB] bottomCurve">
-        <span className="h-80 w-80 rounded-full redBall lg:bg-gradient-to-r from-orange-600 to-red-600">
+        <span className="h-80 w-80 rounded-full redBall lg:bg-gradient-to-r from-orange-600 to-red-600 lg:overflow-hidden">
           <Image
             src="/noise.svg"
             alt="grain svg"
@@ -46,13 +45,13 @@ function Hero() {
         </span>
 
         <span className="absolute mix-blend-difference">
-          <p className="text-[3.5rem] lg:text-[6rem] font-serif capitalize">
+          <p className="text-[3.5rem] lg:text-[8rem] font-serif capitalize">
             {words[count]}
           </p>
         </span>
 
         {count >= 2 && (
-          <div className="logo-container gap-6 text-[3.5rem] lg:text-[6rem] font-serif capitalize text-black SecText">
+          <div className="logo-container gap-6 text-[3.5rem] lg:text-[8rem] font-serif capitalize text-black SecText">
             <h1 className="animate-letter">
               A{count <= 2 && <span className="fade-out">DITYA</span>}
             </h1>
@@ -68,9 +67,12 @@ function Hero() {
   const final = () => {
     return (
       <div className="background">
-        <div className="z-50 absolute flex -top-[12px] left-2 text-[3.5rem] lg:text-[3rem] font-serif capitalize text-black">
-          AJ
-        </div>
+        <span className="z-50 absolute flex -top-[12px] left-2 bg-black rounded-lg p-1">
+          <div className="text-[3rem] lg:text-[3rem] font-serif capitalize text-white">
+            AJ
+          </div>
+        </span>
+
         <div className="hidden h-32 w-32 absolute -bottom-4 left-[45%] z-50 lg:flex items-top justify-center overflow-hidden transition duration-300 eyeblink">
           <span className="eyeball flex flex-col items-center justify-center h-32 w-32">
             <svg
@@ -90,36 +92,30 @@ function Hero() {
           </span>
         </div>
 
-        <HeroHighlight>
-          <motion.h1
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            animate={{
-              opacity: 1,
-              y: [20, -5, 0],
-            }}
-            transition={{
-              duration: 0.5,
-              ease: [0.4, 0.0, 0.2, 1],
-            }}
-            className="text-2xl px-4 md:text-4xl lg:text-5xl font-bold text-neutral-700 dark:text-white max-w-lg lg:max-w-5xl text-center"
-          >
-            <span className="flex flex-col gap-2">
-              <TextGenerateEffect
-                className="text-4xl text-center lg:text-6xl font-extrabold uppercase"
-                words="transforming concepts into seemless, user experiences"
-                red={3}
-                textColor="text-red-600"
-              />
-              <p className="flex flex-col items-center justify-center lg:flex-row text-[20px] lg:text-[24px] bg-gradient-to-r from-orange-400 to-red-400 capitalize bg-clip-text text-transparent">
-                <span>wesbites that make you &quotOutshine&quot,</span>{" "}
-                <span className="italic">websites that makes you &quotgrow&quot</span>
-              </p>
-            </span>
-          </motion.h1>
-        </HeroHighlight>
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 20,
+            x: -1000,
+          }}
+          animate={{
+            opacity: 1,
+            y: [20, -5, 0],
+            x: 0,
+          }}
+          transition={{
+            duration: 0.5,
+            ease: [0.4, 0.0, 0.2, 1],
+          }}
+          className="max-w-lg lg:max-w-[70%]"
+        >
+          <TextGenerateEffect
+            className="text-[2.5rem] lg:text-[6rem] lg:space-y-2 font-serif font-extrabold uppercase ml-1 lg:ml-2 leading-none"
+            words="transforming concepts into seemless, user experiences"
+            red={3}
+            textColor="text-red-600"
+          />
+        </motion.div>
 
         <div className="flex items-center justify-center text-center z-50">
           <div className="lg:bg-gradient-to-r from-orange-600 to-red-600 rounded-full h-[400px] w-[400px] -bottom-8 absolute -right-10 overflow-hidden">
@@ -134,7 +130,7 @@ function Hero() {
               alt="My image"
               height={80}
               width={80}
-              className="rounded-full h-[400px] w-[400px] object-cover -rotate-6 grayscale lg:hover:scale-[1.1] lg:hover:-rotate-2 transition duration-300"
+              className="z-50 absolute rounded-full h-[400px] w-[400px] object-cover -rotate-6 grayscale lg:hover:scale-[1.1] lg:hover:-rotate-2 transition duration-300"
             />
           </div>
         </div>

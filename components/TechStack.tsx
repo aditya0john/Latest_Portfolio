@@ -1,9 +1,8 @@
-"use client";
 import { cn } from "@/lib/utils";
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { TextGenerateEffect } from "./aceternity/text-generate";
+
 
 import { BentoGrid, BentoGridItem } from "./aceternity/BentoGrid";
 import {
@@ -16,9 +15,25 @@ import {
 
 export default function TechStack() {
   return (
-    <div className="PrmColor h-full w-full flex items-center justify-center">
+    <div className="PrmColor h-full w-full flex items-center justify-center overflow-hidden">
       <span className="flex">
-        <div className="text-black max-w-sm translate-x-6">
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 20,
+            x: -1000,
+          }}
+          animate={{
+            opacity: 1,
+            y: [20, -5, 0],
+            x: 0,
+          }}
+          transition={{
+            duration: 0.5,
+            ease: [0.4, 0.0, 0.2, 1],
+          }}
+          className="text-black max-w-sm translate-x-6 hidden lg:block"
+        >
           {Array(10)
             .fill(null)
             .map((_, i) => (
@@ -29,9 +44,9 @@ export default function TechStack() {
                 TECHSTACK
               </p>
             ))}
-        </div>
+        </motion.div>
 
-        <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem] z-50">
+        <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem] z-50 p-4 lg:p-0">
           {items.map((item, i) => (
             <BentoGridItem
               key={i}
@@ -44,7 +59,23 @@ export default function TechStack() {
           ))}
         </BentoGrid>
 
-        <div className="text-black max-w-sm -translate-x-6">
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 20,
+            x: 1000,
+          }}
+          animate={{
+            opacity: 1,
+            y: [20, -5, 0],
+            x: 0,
+          }}
+          transition={{
+            duration: 0.5,
+            ease: [0.4, 0.0, 0.2, 1],
+          }}
+          className="text-black max-w-sm translate-x-6 hidden lg:block"
+        >
           {Array(10)
             .fill(null)
             .map((_, i) => (
@@ -55,7 +86,7 @@ export default function TechStack() {
                 TECHSTACK
               </p>
             ))}
-        </div>
+        </motion.div>
       </span>
     </div>
   );
@@ -150,7 +181,7 @@ const SkeletonTwo = () => {
           style={{
             maxWidth: Math.random() * (100 - 40) + 40 + "%",
           }}
-          className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2  items-center space-x-2 bg-neutral-100 dark:bg-black w-full h-4"
+          className="flex flex-row rounded-full p-2  items-center space-x-2 bg-neutral-100 dark:bg-black w-full h-4"
         ></motion.div>
       ))}
     </motion.div>
@@ -253,13 +284,6 @@ const SkeletonFour = () => {
       >
         <span className="flex">
           <Image
-            src="/react.png"
-            alt="avatar"
-            height="100"
-            width="100"
-            className="rounded-full h-14 w-14 object-cover"
-          />
-          <Image
             src="/postgres.png"
             alt="avatar"
             height="100"
@@ -268,7 +292,7 @@ const SkeletonFour = () => {
           />
         </span>
         <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-          I love React, Redux and SQL, PostgreSQL
+          I love and SQL, PostgreSQL
         </p>
         <p className="border border-orange-500 bg-orange-100 dark:bg-orange-900/20 text-orange-600 text-xs rounded-full px-2 py-0.5 mt-4">
           Helpless
@@ -311,7 +335,7 @@ const SkeletonFive = () => {
     >
       <motion.div
         variants={variants}
-        className="flex flex-row rounded-2xl border border-neutral-100 dark:border-white/[0.2] p-2  items-start space-x-2 bg-white dark:bg-black"
+        className="flex flex-row rounded-2xl border border-neutral-100 dark:border-white/[0.2] p-2 items-start space-x-2 bg-white dark:bg-black"
       >
         <Image
           src="/logo.jpeg"
@@ -340,10 +364,9 @@ const items = [
   {
     title: "FrontEnd",
     description: (
-      <TextGenerateEffect
-        words="Elevate your brand with seamless, interactive user experiences."
-        className="text-sm PrmText "
-      />
+      <p className="text-sm PrmText">
+        Elevate your brand with seamless, interactive user experiences.
+      </p>
     ),
     header: <SkeletonOne />,
     className: "col-span-1",
@@ -352,10 +375,9 @@ const items = [
   {
     title: "BackEnd",
     description: (
-      <TextGenerateEffect
-        words="Your data, logic, and performance optimized to perfection."
-        className="text-sm PrmText "
-      />
+      <p className="text-sm PrmText">
+        Your data, logic, and performance optimized to perfection.
+      </p>
     ),
     header: <SkeletonTwo />,
     className: "col-span-1",
@@ -364,22 +386,19 @@ const items = [
   {
     title: "FullStack",
     description: (
-      <TextGenerateEffect
-        words="From sleek, engaging UIs to rock-solid backend systems, Lets build something extraordinary together!"
-        className="text-sm PrmText"
-      />
+      <p className="text-sm PrmText">
+        From sleek, engaging UIs to rock-solid backend systems, Lets build
+        something extraordinary together!
+      </p>
     ),
     header: <SkeletonThree />,
-    className: "col-span-1",
+    className: "col-span-1 hidden lg:flex",
     icon: <IconSignature className="h-4 w-4 text-white" />,
   },
   {
     title: "FAST, RELIABLE, GLOBALLY USED, SECURE TECH",
     description: (
-      <TextGenerateEffect
-        words="All the TECHNOLOGY you name it I do it."
-        className="text-sm PrmText"
-      />
+      <p className="text-sm PrmText">All the TECHNOLOGY you name it I do it.</p>
     ),
     header: <SkeletonFour />,
     className: "col-span-2",
@@ -389,13 +408,12 @@ const items = [
   {
     title: "Text Summarization",
     description: (
-      <TextGenerateEffect
-        words="Summarize your lengthy documents with AI technology."
-        className="text-sm PrmText"
-      />
+      <p className="text-sm PrmText">
+        Summarize your lengthy documents with AI technology.
+      </p>
     ),
     header: <SkeletonFive />,
-    className: "col-span-1",
+    className: "col-span-1 hidden lg:flex",
     icon: <IconBoxAlignRightFilled className="h-4 w-4 text-white" />,
   },
 ];

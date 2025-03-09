@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
 import TechStack from "@/components/TechStack";
+import Link from "next/link";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<null | string>(null);
@@ -58,9 +59,10 @@ export default function Home() {
           </div>
         </div>
       ) : (
-        <div className="h-screen w-full overflow-y-auto snap-y snap-mandatory select-none background">
+        <div className="h-screen w-full overflow-x-hidden overflow-y-auto snap-y snap-mandatory select-none background">
           {/* Hero Section */}
           <section
+            id="TopPage"
             ref={(el) => (sectionsRef.current[0] = el)}
             data-section="hero"
             className="h-screen snap-start SecColor"
@@ -70,7 +72,7 @@ export default function Home() {
 
           {/* About Section */}
           <section
-            id="about"
+            id="About"
             ref={(el) => (sectionsRef.current[1] = el)}
             data-section="about"
             className="snap-start SecColor h-screen flex items-center justify-center"
@@ -80,6 +82,7 @@ export default function Home() {
 
           {/* TechStack Section */}
           <section
+            id="TechStack"
             ref={(el) => (sectionsRef.current[2] = el)}
             data-section="techstack"
             className="h-screen PrmColor snap-start flex items-center justify-center"
@@ -89,6 +92,7 @@ export default function Home() {
 
           {/* Projects Section */}
           <section
+            id="Projects"
             ref={(el) => (sectionsRef.current[3] = el)}
             data-section="projects"
             className="snap-start SecColor h-screen"

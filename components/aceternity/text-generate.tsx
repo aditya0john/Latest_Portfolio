@@ -44,7 +44,7 @@ export const TextGenerateEffect = ({
             <motion.span
               key={word + idx}
               className={cn(
-                `text-neutral-700 !drop-shadow-[6px_3px_3px_rgba(0,0,0,0.25)] !font-[100px] opacity-0 hover:!text-red-600 transition duration-300 ${
+                `text-black !drop-shadow-[6px_3px_3px_rgba(0,0,0,0.25)] !font-[100px] opacity-0 hover:!text-red-600 transition duration-300 ${
                   idx > red ? `${textColor} !font-extrabold` : ""
                 }`,
                 className
