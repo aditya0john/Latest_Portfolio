@@ -10,7 +10,7 @@ import TechStack from "@/components/TechStack";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<null | string>(null);
-  const sectionsRef = useRef<(HTMLElement | null)[]>([]);
+  const sectionsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [isloading, setIsLoading] = useState(true);
 
   useEffect(() => {

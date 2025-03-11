@@ -15,7 +15,7 @@ import {
 
 export default function TechStack() {
   return (
-    <div className="PrmColor h-full w-full flex items-center justify-center overflow-hidden">
+    <div className="PrmColor h-full w-full flex items-center justify-center overflow-hidden scale-90 lg:scale-100">
       <span className="flex">
         <motion.div
           initial={{

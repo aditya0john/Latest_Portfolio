@@ -23,7 +23,7 @@ function Hero() {
 
   const Introduction = () => {
     return (
-      <div className="flex items-center justify-center h-[50rem] lg:h-[38rem] bg-gradient-to-br from-[#FFF9F3] to-[#FFEFEB] bottomCurve">
+      <div className="flex items-center justify-center h-[38rem] bg-gradient-to-br from-[#FFF9F3] to-[#FFEFEB] bottomCurve">
         <span className="h-80 w-80 rounded-full redBall lg:bg-gradient-to-r from-orange-600 to-red-600 lg:overflow-hidden">
           <Image
             src="/noise.svg"
