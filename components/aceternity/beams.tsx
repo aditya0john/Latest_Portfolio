@@ -10,8 +10,8 @@ export const BackgroundBeamsWithCollision = ({
   children: React.ReactNode;
   className?: string;
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const parentRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement >(null!);
+  const parentRef = useRef<HTMLDivElement >(null!);
 
   const beams = [
     {
@@ -71,13 +71,12 @@ export const BackgroundBeamsWithCollision = ({
       ref={parentRef}
       className={cn(
         "h-[50rem] lg:h-[38rem] z-50  bg-gradient-to-br from-[#FFF9F3] to-[#FFEFEB] relative flex items-center w-full justify-center overflow-hidden bottomCurve",
-        // h-screen if you want bigger
         className
       )}
     >
-      {beams.map((beam) => (
+      {beams.map((beam, index) => (
         <CollisionMechanism
-          key={beam.initialX + "beam-idx"}
+          key={`beam-${index}`}
           beamOptions={beam}
           containerRef={containerRef}
           parentRef={parentRef}
