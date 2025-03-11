@@ -9,7 +9,7 @@ function About() {
   return (
     <div className="flex flex-col lg:gap-4 items-center overflow-hidden">
       <div className="flex flex-col gap-4 items-center justify-center p-8 lg:max-w-7xl scale-90 lg:scale-100">
-        <span className="text-4xl lg:text-6xl text-center font-extrabold text-neutral-300 z-50">
+        <span className="text-3xl lg:text-6xl text-center font-extrabold text-neutral-300 z-50">
           Build
           <FlipWords
             words={words}
