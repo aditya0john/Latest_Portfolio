@@ -15,7 +15,7 @@ import {
 
 export default function TechStack() {
   return (
-    <div className="PrmColor h-full w-full flex items-center justify-center overflow-hidden scale-90 lg:scale-100">
+    <div className="PrmColor h-full w-full flex items-center justify-center overflow-hidden">
       <span className="flex">
         <motion.div
           initial={{
@@ -46,7 +46,7 @@ export default function TechStack() {
             ))}
         </motion.div>
 
-        <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem] z-50 p-4 lg:p-0">
+        <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem] z-50 p-4 lg:p-0 scale-90">
           {items.map((item, i) => (
             <BentoGridItem
               key={i}
@@ -126,7 +126,7 @@ const SkeletonOne = () => {
     >
       <motion.div
         variants={variants}
-        className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2  items-center space-x-2 bg-white dark:bg-black"
+        className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center space-x-2 bg-white dark:bg-black"
       >
         <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 flex-shrink-0" />
         <div className="w-full bg-gray-100 h-4 rounded-full dark:bg-neutral-900" />

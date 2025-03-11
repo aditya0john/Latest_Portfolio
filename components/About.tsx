@@ -50,7 +50,7 @@ function About() {
                 words.map((word, i) => (
                   <span
                     key={`${i}-${loopIndex}`}
-                    className="text-6xl lg:text-8xl text-orange-500 font-extrabold uppercase font-serif flex items-center justify-center"
+                    className="text-5xl lg:text-8xl text-orange-500 font-extrabold uppercase font-serif flex items-center justify-center"
                   >
                     <span>{word}</span>
                     <span>
