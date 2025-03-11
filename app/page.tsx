@@ -64,7 +64,9 @@ export default function Home() {
           {/* Hero Section */}
           <section
             id="TopPage"
-            ref={(el) => (sectionsRef.current[0] = el)}
+            ref={(el) => {
+              sectionsRef.current[0] = el; // ✅ Assign the element
+            }}
             data-section="hero"
             className="h-screen snap-start SecColor"
           >
@@ -74,7 +76,9 @@ export default function Home() {
           {/* About Section */}
           <section
             id="About"
-            ref={(el) => (sectionsRef.current[1] = el)}
+            ref={(el) => {
+              sectionsRef.current[1] = el; // ✅ Assign the element
+            }}
             data-section="about"
             className="snap-start SecColor h-screen flex items-center justify-center"
           >
@@ -84,7 +88,9 @@ export default function Home() {
           {/* TechStack Section */}
           <section
             id="TechStack"
-            ref={(el) => (sectionsRef.current[2] = el)}
+            ref={(el) => {
+              sectionsRef.current[2] = el; // ✅ Assign the element
+            }}
             data-section="techstack"
             className="h-screen PrmColor snap-start flex items-center justify-center"
           >
@@ -94,7 +100,9 @@ export default function Home() {
           {/* Projects Section */}
           <section
             id="Projects"
-            ref={(el) => (sectionsRef.current[3] = el)}
+            ref={(el) => {
+              sectionsRef.current[3] = el; // ✅ Assign the element
+            }}
             data-section="projects"
             className="snap-start SecColor h-screen"
           >
