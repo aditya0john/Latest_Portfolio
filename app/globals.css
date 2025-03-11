@@ -128,10 +128,9 @@ body {
       opacity: 0;
     }
   }
-
   to {
-    right: -35%;
-    bottom: -14%;
+    right: -40%;
+    bottom: -24%;
     transform: scale(1.24);
   }
 }
