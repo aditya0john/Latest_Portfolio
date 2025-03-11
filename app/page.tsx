@@ -1,11 +1,12 @@
 "use client";
-import Hero from "@/components/Hero";
+
 import { TextGenerateEffect } from "@/components/aceternity/text-generate";
 import { useEffect, useRef, useState } from "react";
+
+import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
 import TechStack from "@/components/TechStack";
-import Link from "next/link";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<null | string>(null);

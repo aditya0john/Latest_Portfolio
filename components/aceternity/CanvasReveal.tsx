@@ -4,6 +4,11 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import React, { useMemo, useRef } from "react";
 import * as THREE from "three";
 
+interface UniformData {
+  type: "uniform1f" | "uniform2f" | "uniform3f" | "uniform1fv" | "uniform3fv";
+  value: number | number[] | [number, number] | [number, number, number] | [number, number, number][];
+}
+
 export const CanvasRevealEffect = ({
   animationSpeed = 0.4,
   opacities = [0.3, 0.3, 0.3, 0.5, 0.5, 0.5, 0.8, 0.8, 0.8, 1],
@@ -209,53 +214,60 @@ const ShaderMaterial = ({
     timeLocation.value = timestamp;
   });
 
-  const getUniforms = () => {
-    const preparedUniforms: Record<string, { value: unknown; type: string }> =
-      {};
-
+  const getUniforms = (): Record<string, { value: unknown; type: string }> => {
+    const preparedUniforms: Record<string, { value: unknown; type: string }> = {};
+  
     for (const uniformName in uniforms) {
-      const uniform: any = uniforms[uniformName];
-
+      const uniform = uniforms[uniformName] as UniformData; // ✅ Use typed interface
+  
       switch (uniform.type) {
         case "uniform1f":
-          preparedUniforms[uniformName] = { value: uniform.value, type: "1f" };
+          preparedUniforms[uniformName] = { value: uniform.value as number, type: "1f" };
           break;
+          
+        case "uniform2f":
+          preparedUniforms[uniformName] = {
+            value: new THREE.Vector2().fromArray(uniform.value as [number, number]),
+            type: "2f",
+          };
+          break;
+          
         case "uniform3f":
           preparedUniforms[uniformName] = {
-            value: new THREE.Vector3().fromArray(uniform.value),
+            value: new THREE.Vector3().fromArray(uniform.value as [number, number, number]),
             type: "3f",
           };
           break;
+          
         case "uniform1fv":
-          preparedUniforms[uniformName] = { value: uniform.value, type: "1fv" };
+          preparedUniforms[uniformName] = { value: uniform.value as number[], type: "1fv" };
           break;
+          
         case "uniform3fv":
           preparedUniforms[uniformName] = {
-            value: uniform.value.map((v: number[]) =>
+            value: (uniform.value as [number, number, number][]).map((v) =>
               new THREE.Vector3().fromArray(v)
             ),
             type: "3fv",
           };
           break;
-        case "uniform2f":
-          preparedUniforms[uniformName] = {
-            value: new THREE.Vector2().fromArray(uniform.value),
-            type: "2f",
-          };
-          break;
+  
         default:
           console.error(`Invalid uniform type for '${uniformName}'.`);
           break;
       }
     }
-
+  
+    // Add default uniforms
     preparedUniforms["u_time"] = { value: 0, type: "1f" };
     preparedUniforms["u_resolution"] = {
       value: new THREE.Vector2(size.width * 2, size.height * 2),
       type: "2f",
-    }; // Initialize u_resolution
+    };
+  
     return preparedUniforms;
   };
+  
 
   // Shader material
   const material = useMemo(() => {

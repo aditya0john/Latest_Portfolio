@@ -1,17 +1,17 @@
 "use client";
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
-import { BackgroundBeamsWithCollision } from "./beams";
+import React, { useEffect, useRef, useState } from "react";
+import { BackgroundBeamsWithCollision } from "./aceternity/beams";
 import Image from "next/image";
 import { TextGenerateEffect } from "./aceternity/text-generate";
 
 function Hero() {
   const [isloading, setIsLoading] = useState(true);
-  const words = ["W E L C O M E", "I AM", " "];
+  const words = useRef(["W E L C O M E", "I AM", " "]);
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (count <= words.length) {
+    if (count <= words.current.length) {
       const timer = setTimeout(() => {
         setCount((prev) => prev + 1);
       }, 3400);
@@ -20,8 +20,6 @@ function Hero() {
       setIsLoading(false);
     }
   }, [count]);
-
-  console.log(count);
 
   const Introduction = () => {
     return (
@@ -46,7 +44,7 @@ function Hero() {
 
         <span className="absolute mix-blend-difference">
           <p className="text-[3.5rem] lg:text-[8rem] font-serif capitalize">
-            {words[count]}
+            {words.current[count]}
           </p>
         </span>
 
