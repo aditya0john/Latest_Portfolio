@@ -7,7 +7,7 @@ function About() {
   const words = ["better", "innovative", "beautiful", "modern"];
 
   return (
-    <div className="flex flex-col gap-4 items-center overflow-hidden">
+    <div className="flex flex-col lg:gap-4 items-center overflow-hidden">
       <div className="flex flex-col gap-4 items-center justify-center p-8 lg:max-w-7xl scale-90 lg:scale-100">
         <span className="text-4xl lg:text-6xl text-center font-extrabold text-neutral-300 z-50">
           Build
@@ -19,7 +19,7 @@ function About() {
         </span>
 
         <TextGenerateEffect
-          className="text-white capitalize font-sans font-normal italic text-xl/6 lg:text-[35px]/snug text-justify tracking-tighter overflow-hidden"
+          className="text-white capitalize font-sans font-normal italic text-base/6 lg:text-[35px]/snug text-justify tracking-tighter overflow-hidden"
           staggerdelay={0.1}
           duration={0.2}
           words=" Results-driven Full-Stack Developer with expertise in React, Next.js, Node.js, and TypeScript. Passionate

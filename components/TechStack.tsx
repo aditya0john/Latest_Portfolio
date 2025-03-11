@@ -46,7 +46,7 @@ export default function TechStack() {
             ))}
         </motion.div>
 
-        <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem] z-50 p-4 lg:p-0 scale-90">
+        <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem] z-50 p-4 lg:p-0 scale-75 lg:scale-100">
           {items.map((item, i) => (
             <BentoGridItem
               key={i}
