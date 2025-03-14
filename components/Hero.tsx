@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { BackgroundBeamsWithCollision } from "./aceternity/beams";
 import Image from "next/image";
 import { TextGenerateEffect } from "./aceternity/text-generate";
+import Spline from "@splinetool/react-spline";
 
 function Hero() {
   const [isloading, setIsLoading] = useState(true);
@@ -24,20 +25,14 @@ function Hero() {
   const Introduction = () => {
     return (
       <div className="flex items-center justify-center h-[38rem] bg-gradient-to-br from-[#FFF9F3] to-[#FFEFEB] bottomCurve">
-        <span className="h-80 w-80 rounded-full redBall lg:bg-gradient-to-r from-orange-600 to-red-600 lg:overflow-hidden">
-          <Image
-            src="/noise.svg"
-            alt="grain svg"
-            fill
-            className="hidden lg:block object-cover absolute rounded-full"
-          />
+        <span className="h-80 w-80 rounded-full redBall lg:bg-gradient-to-r from-[#DE8359] to-[#D86063] lg:overflow-hidden">
           {count >= 1 && (
             <Image
               src={"/dithered-ME.png"}
               alt="My image"
               height={80}
               width={80}
-              className="z-50 lg:-bottom-8 absolute right-20 lg:right-0 rounded-full h-[400px] w-[400px] object-cover -rotate-6 grayscale lg:hover:scale-[1.1] lg:hover:-rotate-2 transition duration-300"
+              className="z-50 -bottom-6 lg:-bottom-8 absolute right-20 lg:right-0 rounded-full h-[400px] w-[400px] object-cover -rotate-6 lg:hover:scale-[1.1] lg:hover:-rotate-2 transition duration-300"
             />
           )}
         </span>
@@ -98,38 +93,26 @@ function Hero() {
           }}
           animate={{
             opacity: 1,
-            y: [20, -5, 0],
+            y: [0, -5, 0],
             x: 0,
           }}
           transition={{
             duration: 0.5,
             ease: [0.4, 0.0, 0.2, 1],
           }}
-          className="max-w-lg lg:max-w-[70%]"
+          className="max-w-lg lg:max-w-[70%] absolute top-20 left-0"
         >
           <TextGenerateEffect
-            className="text-[2.5rem] lg:text-[6rem] lg:space-y-2 font-serif font-extrabold uppercase ml-1 lg:ml-2 leading-none"
+            className="text-[2.5rem] lg:text-[6rem] font-serif font-extrabold uppercase ml-1 lg:ml-2 leading-none"
             words="transforming concepts into seemless, user experiences"
             red={3}
             textColor="text-red-600"
           />
         </motion.div>
 
-        <div className="flex items-center justify-center text-center z-50">
-          <div className="lg:bg-gradient-to-r from-orange-600 to-red-600 rounded-full h-[400px] w-[400px] -bottom-8 absolute -right-10 overflow-hidden">
-            <Image
-              src="/noise.svg"
-              alt="grain svg"
-              fill
-              className="hidden lg:block object-cover absolute rounded-lg"
-            />
-            <Image
-              src={"/dithered-ME.png"}
-              alt="My image"
-              height={80}
-              width={80}
-              className="z-50 absolute rounded-full h-[400px] w-[400px] object-cover -rotate-6 grayscale lg:hover:scale-[1.1] lg:hover:-rotate-2 transition duration-300"
-            />
+        <div className=" text-center z-50">
+          <div className="rounded-full h-[400px] w-[400px] -bottom-12 absolute -right-12">
+            <Spline scene="https://prod.spline.design/YGPz7tiqJLCm2JSW/scene.splinecode" />
           </div>
         </div>
       </div>
