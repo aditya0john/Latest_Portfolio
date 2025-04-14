@@ -4,7 +4,7 @@ import { FlipWords } from "./aceternity/flipWords";
 import { motion } from "framer-motion";
 
 function About() {
-  const words = ["better", "innovative", "beautiful", "modern"];
+  const words = ["faster", "innovative", "beautiful", "modern","creative","techy"];
 
   return (
     <div className="flex flex-col lg:gap-4 items-center overflow-hidden">

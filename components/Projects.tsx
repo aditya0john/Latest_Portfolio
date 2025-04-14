@@ -13,9 +13,9 @@ function Projects() {
             key={id}
             className="flex items-center justify-center sm:w-[570px] w-[80vw] sm:h-[40vh] h-[30vh] mx-auto lg:hover:-rotate-6 transition duration-300"
           >
-            <PinContainer title={link} href={link}>
+            <PinContainer title={title} href={link}>
               <div className="relative  flex items-center justify-center sm:w-[570px] w-[80vw] overflow-hidden sm:h-[40vh] h-[30vh] mb-10">
-                <div className="relative bg-[#190d05] h-full w-full overflow-hidden rounded-2xl">
+                <div className="relative bg-[#fcf5e5]/[0.6] h-full w-full overflow-hidden rounded-2xl">
                   <Image src="/bg.png" alt="bg-img" fill />
                 </div>
                 <Image
