@@ -7,6 +7,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
 import TechStack from "@/components/TechStack";
+import Contact from "@/components/Contact";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<null | string>(null);
@@ -107,6 +108,17 @@ export default function Home() {
             className="snap-start SecColor h-screen"
           >
             {activeSection === "projects" && <Projects />}
+          </section>
+
+          <section
+            id="Contact"
+            ref={(el) => {
+              sectionsRef.current[4] = el; // ✅ Assign the element
+            }}
+            data-section="contact"
+            className="snap-start PrmColor h-screen"
+          >
+            {activeSection === "contact" && <Contact />}
           </section>
         </div>
       )}

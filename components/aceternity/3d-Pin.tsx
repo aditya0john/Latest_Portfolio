@@ -12,10 +12,8 @@ export const PinContainer = ({
   containerClassName,
 }: {
   children: React.ReactNode;
-  title?: string;
-  href?: string;
-  className?: string;
-  containerClassName?: string;
+  title?: string;href?: string;
+  className?: string;containerClassName?: string;
 }) => {
   const [transform, setTransform] = useState(
     "translate(-50%,-50%) rotateX(0deg)"

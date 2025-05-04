@@ -4,10 +4,32 @@ import { FlipWords } from "./aceternity/flipWords";
 import { motion } from "framer-motion";
 
 function About() {
-  const words = ["faster", "innovative", "beautiful", "modern","creative","techy"];
+  const words = [
+    "faster",
+    "innovative",
+    "beautiful",
+    "modern",
+    "creative",
+    "techy",
+  ];
+
+  const download = () => {
+    const link = document.createElement("a");
+    link.href = "/RESUME.pdf"; // Path to your resume file
+    link.download = "AdityaJohnResume.pdf"; // Name of the downloaded file
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <div className="flex flex-col lg:gap-4 items-center overflow-hidden">
+      <button
+        onClick={download}
+        className="absolute right-4 top-4 border-2 rounded-lg text-xs p-2 hover:bg-white/[0.4] font-bold"
+      >
+        RESUME
+      </button>
       <div className="flex flex-col gap-4 items-center justify-center p-8 lg:max-w-7xl scale-90 lg:scale-100">
         <span className="text-3xl lg:text-6xl text-center font-extrabold text-neutral-300 z-50">
           Build
