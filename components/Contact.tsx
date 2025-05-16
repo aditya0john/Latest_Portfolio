@@ -10,30 +10,35 @@ function Contact() {
   });
 
   const copyPhoneNumber = () => {
-    let num = "+91 6396050728";
+    const num = "+91 6396050728";
 
-    navigator.clipboard
-      .writeText(num)
-      .then(() => {
-        alert("Phone number copied");
-        setNumberCopied(true);
-        if (confirm("DO YOU WANT TO OPEN THIS NUMBER ?")) {
-          window.open("tel:" + num, "_self");
-        }
-      })
-      .catch((error) => {
-        alert("Failed to copy phone number: " + error.message);
-        console.error(error);
-      });
+    if (numberCopied) {
+      alert("Phone number already copied");
+      return;
+    } else {
+      navigator.clipboard
+        .writeText(num)
+        .then(() => {
+          alert("Phone number copied");
+          setNumberCopied(true);
+          if (confirm("DO YOU WANT TO OPEN THIS NUMBER ?")) {
+            window.open("tel:" + num, "_self");
+          }
+        })
+        .catch((error) => {
+          alert("Failed to copy phone number: " + error.message);
+          console.error(error);
+        });
+    }
   };
 
   const handleCopyClick = () => {
     copyPhoneNumber();
   };
 
-  const submit = (e: any) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const response = axios.post("/api/sendMail", {
+    const response = await axios.post("/api/sendMail", {
       email: details.email,
       name: details.name,
       message: details.message,
