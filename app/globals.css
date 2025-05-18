@@ -18,7 +18,7 @@
   display: none; /* Hide scrollbar in Chrome, Safari */
 }
 .no-scrollbar {
- /* -ms-overflow-style: none; Hide scrollbar in IE, Edge  */
+  /* -ms-overflow-style: none; Hide scrollbar in IE, Edge  */
   scrollbar-width: none; /* Hide scrollbar in Firefox */
 }
 
@@ -33,7 +33,6 @@
 }
 
 ::-webkit-scrollbar-thumb {
- 
   background-color: rgb(255, 0, 0);
 }
 
@@ -73,7 +72,7 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
-  animation: moveToTop 2s ease-out forwards 3.8s;
+  animation: moveToTop 2s ease-out forwards 1.8s;
 }
 
 @keyframes moveToTop {
@@ -87,7 +86,7 @@ body {
     gap: 0;
     left: 0;
     top: 0;
-    transform: translate(4%, -14%);
+    transform: translate(4%, -16%);
   }
 }
 
@@ -118,20 +117,46 @@ body {
     right: 20%;
     bottom: 10%;
   }
+
   50% {
-    right: -10%;
-    bottom: -10%;
+    right: 0%;
+    bottom: 0%;
   }
-   {
-    @media screen min-width: 600px;
-    60% {
-      opacity: 0;
-    }
+
+  70% {
+    right: 0%;
+    bottom: 0%;
   }
-  to {
-    right: -40%;
-    bottom: -24%;
-    transform: scale(1.24);
+
+  80% {
+    bottom: -30%;
+    right: 0;
+  }
+
+  90% {
+    bottom: -28%;
+    right: 0;
+  }
+
+  91% {
+    bottom: -30%;
+    right: 0%;
+    height: 200px;
+    width: 200px;
+  }
+
+  95% {
+    bottom: -30%;
+    right: 0%;
+    height: 200px;
+    width: 200px;
+  }
+
+  100% {
+    bottom: -30%;
+    right: 0%;
+    height: 500px;
+    width: 500px;
   }
 }
 
@@ -200,20 +225,21 @@ body {
 }
 
 .noise {
-  background-image: linear-gradient(to right, #ea580c, rgba(255, 255, 255, 0.4)),
+  background-image:
+    linear-gradient(to right, #ea580c, rgba(255, 255, 255, 0.4)),
     url("/noise.svg");
   background-repeat: repeat;
   background-size: cover, auto; /* Cover for gradient, auto for noise */
 }
 
 .noiseLeft {
-  background-image: linear-gradient(to right, #ea580c, rgba(255, 255, 255, 0.4)),
+  background-image:
+    linear-gradient(to right, #ea580c, rgba(255, 255, 255, 0.4)),
     url("/noise.svg");
   background-repeat: repeat;
   transform: rotate(-2deg);
   background-size: cover, auto; /* Cover for gradient, auto for noise */
 }
-
 
 .wrapper {
   display: inline-flex;

@@ -7,14 +7,14 @@ import { projects } from "@/data";
 function Projects() {
   return (
     <div className="SecColor h-full w-full flex items-center justify-center overflow-hidden font-serif">
-      <div className="h-full w-full grid grid-cols-[100%_100%_100%_100%] lg:grid-cols-[50%_50%_50%_50%] items-center justify-start overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar lg:rotate-6">
+      <div className="h-full w-full grid grid-cols-[100%_100%_100%_100%_100%] lg:grid-cols-[50%_50%_50%_50%_50%] items-center justify-start overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar lg:rotate-6">
         {projects.map(({ id, title, des, img, iconLists, link }) => (
           <div
             key={id}
             className="flex items-center justify-center sm:w-[570px] w-[80vw] sm:h-[40vh] h-[30vh] mx-auto lg:hover:-rotate-6 transition duration-300"
           >
             <PinContainer title={title} href={link}>
-              <div className="relative  flex items-center justify-center sm:w-[570px] w-[80vw] overflow-hidden sm:h-[40vh] h-[30vh] mb-10">
+              <div className="relative flex items-center justify-center sm:w-[570px] w-[80vw] overflow-hidden sm:h-[40vh] h-[30vh] mb-10">
                 <div className="relative bg-[#fcf5e5]/[0.6] h-full w-full overflow-hidden rounded-2xl">
                   <Image src="/bg.png" alt="bg-img" fill />
                 </div>

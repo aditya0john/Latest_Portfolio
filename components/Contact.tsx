@@ -53,7 +53,7 @@ function Contact() {
 
   return (
     <div className="h-full w-full flex flex-col p-3 items-center justify-center overflow-hidden font-serif">
-      <div className="SecColor p-2 rounded-lg w-full mb-3">
+      <div className="lg:bg-gradient-to-r from-[#DE8359] to-[#D86063] p-2 rounded-lg w-full mb-3">
         <ul className="text-4xl font-bold uppercase flex justify-center p-2">
           Contact form
         </ul>
@@ -108,7 +108,7 @@ function Contact() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-3">
-        <div className="SecColor p-2 rounded-lg w-full ">
+        <div className="noise p-2 rounded-lg w-full ">
           <ul className="text-2xl font-bold text-uppercase flex justify-center p-2">
             contact us
           </ul>
@@ -163,7 +163,7 @@ function Contact() {
           </ul>
         </div>
 
-        <div className="SecColor p-2 rounded-lg w-full ">
+        <div className="noise p-2 rounded-lg w-full ">
           <ul className="text-2xl font-bold text-uppercase flex justify-center p-2">
             follow us on
           </ul>

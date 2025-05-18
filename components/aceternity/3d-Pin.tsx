@@ -12,8 +12,10 @@ export const PinContainer = ({
   containerClassName,
 }: {
   children: React.ReactNode;
-  title?: string;href?: string;
-  className?: string;containerClassName?: string;
+  title?: string;
+  href?: string;
+  className?: string;
+  containerClassName?: string;
 }) => {
   const [transform, setTransform] = useState(
     "translate(-50%,-50%) rotateX(0deg)"
@@ -48,7 +50,7 @@ export const PinContainer = ({
           style={{
             transform: transform,
           }}
-          className="absolute left-1/2 p-4 top-1/2 flex justify-start items-start rounded-3xl bg-white/[0.2] hover:shadow-[0_8px_16px_rgb(255_255_255/0.6)] group-hover/pin:border-white/[0.2] transition duration-700 overflow-hidden"
+          className="absolute left-1/2 p-4 top-1/2 flex justify-start items-start rounded-3xl lg:bg-gradient-to-r from-[#DE8359]/[0.4] to-[#D86063]/[0.1] hover:shadow-[0_8px_16px_rgb(255_255_255/0.6)] group-hover/pin:border-white/[0.2] transition duration-700 overflow-hidden"
         >
           <div className={cn(" relative z-50 ", className)}>{children}</div>
         </div>
