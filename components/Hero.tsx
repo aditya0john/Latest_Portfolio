@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
-import { BackgroundBeamsWithCollision } from "./aceternity/beams";
 import Image from "next/image";
 
 function Hero() {
@@ -29,8 +28,8 @@ function Hero() {
     }
   }, [count]);
 
-  const Introduction = () => {
-    return (
+  return (
+    <div className="relative">
       <div className="flex items-center justify-center h-[38rem] bg-gradient-to-br from-[#FFF9F3] to-[#FFEFEB] bottomCurve">
         <motion.div
           animate={{
@@ -68,8 +67,52 @@ function Hero() {
               alt="My image"
               height={80}
               width={80}
-              className="z-50 lg:right-0 rounded-full h-[600px] w-[600px] object-cover -rotate-6 lg:hover:scale-[1.1] lg:hover:-rotate-2 transition duration-300"
+              className="relative z-50 lg:right-0 rounded-full h-[600px] w-[600px] object-cover -rotate-6 lg:hover:scale-[1.1] lg:hover:-rotate-2 transition duration-300"
             />
+          )}
+          {count > 4 && (
+            <motion.div
+              className="background absolute top-[25%] flex gap-0 whitespace-nowrap"
+              animate={{ x: ["0%", "-50%"] }} // Moves half-way, loops infinitely
+              transition={{
+                repeat: Infinity,
+                duration: 16, // Adjust speed
+                ease: "linear",
+              }}
+            >
+              {Array(2) // Double for smooth looping
+                .fill(null)
+                .flatMap(
+                  (
+                    _,
+                    loopIndex // Add loopIndex to differentiate duplicates
+                  ) =>
+                    BackgroundWords.map((word, i) => (
+                      <span
+                        key={`${i}-${loopIndex}`}
+                        className="text-5xl lg:text-[300px] SecText font-extrabold uppercase flex items-center justify-center"
+                      >
+                        <span>{word}</span>
+                        <span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="4"
+                            stroke="currentColor"
+                            className="size-10"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M5 12h14"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    ))
+                )}
+            </motion.div>
           )}
         </motion.div>
 
@@ -79,7 +122,7 @@ function Hero() {
           </p>
         </span>
 
-        {count >= 3 && (
+        {count >= 3 && isloading && (
           <motion.div
             initial={{
               opacity: 0,
@@ -100,80 +143,14 @@ function Hero() {
             AJ
           </motion.div>
         )}
+        {count >= 4 && (
+          <span className="z-50 absolute flex -top-[12px] left-2 bg-black rounded-lg p-1">
+            <div className="text-[3rem] lg:text-[3rem] font-serif capitalize text-white">
+              AJ
+            </div>
+          </span>
+        )}
       </div>
-    );
-  };
-
-  const final = () => {
-    return (
-      <div className="background">
-        <motion.div
-          className="absolute top-[25%] flex gap-0 whitespace-nowrap"
-          animate={{ x: ["0%", "-50%"] }} // Moves half-way, loops infinitely
-          transition={{
-            repeat: Infinity,
-            duration: 16, // Adjust speed
-            ease: "linear",
-          }}
-        >
-          {Array(2) // Double for smooth looping
-            .fill(null)
-            .flatMap(
-              (
-                _,
-                loopIndex // Add loopIndex to differentiate duplicates
-              ) =>
-                BackgroundWords.map((word, i) => (
-                  <span
-                    key={`${i}-${loopIndex}`}
-                    className="text-5xl lg:text-[300px] SecText font-extrabold uppercase flex items-center justify-center"
-                  >
-                    <span>{word}</span>
-                    <span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="4"
-                        stroke="currentColor"
-                        className="size-10"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M5 12h14"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                ))
-            )}
-        </motion.div>
-        <span className="z-50 absolute flex -top-[12px] left-2 bg-black rounded-lg p-1">
-          <div className="text-[3rem] lg:text-[3rem] font-serif capitalize text-white">
-            AJ
-          </div>
-        </span>
-        <div className=" h-[600px] w-[600px] rounded-full lg:bg-gradient-to-r from-[#DE8359] to-[#D86063] lg:overflow-hidden">
-          <Image
-            src={"/dithered-ME.png"}
-            alt="My image"
-            height={80}
-            width={80}
-            className="z-50 rounded-full h-[600px] w-[600px] object-cover -rotate-6 lg:hover:scale-[1.1] lg:hover:-rotate-2 transition duration-300"
-          />
-        </div>
-      </div>
-    );
-  };
-
-  return (
-    <div className="relative">
-      {isloading ? (
-        Introduction()
-      ) : (
-        <BackgroundBeamsWithCollision>{final()}</BackgroundBeamsWithCollision>
-      )}
     </div>
   );
 }
