@@ -340,57 +340,6 @@ const SkeletonFour = () => {
     </motion.div>
   );
 };
-const SkeletonFive = () => {
-  const variants = {
-    initial: {
-      x: 0,
-    },
-    animate: {
-      x: 10,
-      rotate: 5,
-      transition: {
-        duration: 0.2,
-      },
-    },
-  };
-  const variantsSecond = {
-    initial: {
-      x: 0,
-    },
-    animate: {
-      x: -10,
-      rotate: -5,
-      transition: {
-        duration: 0.2,
-      },
-    },
-  };
-
-  return (
-    <motion.div
-      initial="initial"
-      whileHover="animate"
-      className="flex flex-1 w-full h-full dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
-    >
-      <motion.div
-        variants={variants}
-        className="flex flex-row rounded-2xl border border-neutral-100 dark:border-white/[0.2] p-2 items-start space-x-2 bg-white dark:bg-black"
-      >
-        <Image
-          src="/logo.jpeg"
-          alt="avatar"
-          height="100"
-          width="100"
-          className="rounded-full h-16 w-16"
-        />
-        <p className="text-xs font-bold text-neutral-500">
-          Framerworks like React, Next, Node, React Native that can make your
-          projects the smoothest and best of all.
-        </p>
-      </motion.div>
-    </motion.div>
-  );
-};
 
 const items = [
   {
