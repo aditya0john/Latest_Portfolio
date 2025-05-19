@@ -89,8 +89,8 @@ function Hero() {
                   ) =>
                     BackgroundWords.map((word, i) => (
                       <span
-                        key={`${i}-${loopIndex}`}
-                        className="text-5xl lg:text-[300px] SecText font-extrabold uppercase flex items-center justify-center"
+                        key={`${i} ${loopIndex}`}
+                        className="text-5xl lg:text-[300px] text-yellow-500 font-extrabold uppercase flex items-center justify-center"
                       >
                         <span>{word}</span>
                         <span>
