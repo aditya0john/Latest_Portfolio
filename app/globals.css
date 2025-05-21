@@ -63,10 +63,6 @@ body {
   overflow: hidden;
 }
 
-.background {
-  animation: bgg linear 0.6s forwards;
-}
-
 .logo-container {
   display: flex;
   justify-content: center;
@@ -227,6 +223,14 @@ body {
 .noise {
   background-image:
     linear-gradient(to right, #ea580c, rgba(255, 255, 255, 0.4)),
+    url("/noise.svg");
+  background-repeat: repeat;
+  background-size: cover, auto; /* Cover for gradient, auto for noise */
+}
+
+.noiseReverse {
+  background-image:
+    linear-gradient(to left, #ea580c, rgba(255, 255, 255, 0.4)),
     url("/noise.svg");
   background-repeat: repeat;
   background-size: cover, auto; /* Cover for gradient, auto for noise */
