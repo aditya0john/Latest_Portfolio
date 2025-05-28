@@ -96,7 +96,7 @@ function Hero() {
             times: [0, 0.15, 0.8, 0.84, 0.88, 0.95, 1], // Keyframe percentages
             ease: "easeInOut",
           }}
-          className="rounded-full noise lg:overflow-hidden relative mx-10"
+          className="rounded-full noise lg:overflow-hidden relative mx-10 overflow-hidden"
         >
           {count > 3 && (
             <Image
@@ -105,20 +105,18 @@ function Hero() {
               width={80}
               height={80}
               priority // ✅ Loads it earlier without layout shift
-              placeholder="blur"
-              blurDataURL="/blur-placeholder.png"
-              className="relative z-50 lg:right-0 rounded-full h-[600px] w-[600px] object-cover -rotate-6 lg:hover:scale-[1.1] lg:hover:-rotate-2 transition duration-300"
+              className="absolute z-50 bottom-0 rounded-full h-[400px] lg:h-[600px] w-[400px] lg:w-[600px] object-cover lg:-rotate-6 lg:hover:scale-[1.1] lg:hover:-rotate-2 transition duration-300 "
             />
           )}
 
           {count >= 4 && (
-            <div className="absolute flex flex-col justify-between inset-0 ">
+            <div className="absolute flex flex-col justify-between inset-0">
               {Array.from({ length: 6 }).map((_, rowIndex) => {
                 const isEven = rowIndex % 2 === 0;
                 return (
                   <motion.div
                     key={rowIndex}
-                    className={`flex  whitespace-nowrap rotate-[-45deg]`}
+                    className={`flex whitespace-nowrap rotate-[-45deg]`}
                     style={{
                       top: `${rowIndex * 18}vh`, // Spread 6 rows evenly
                     }}
@@ -198,7 +196,7 @@ function Hero() {
         )}
 
         <span className="absolute SecText">
-          <p className="text-[3.5rem] lg:text-[8rem] font-serif capitalize">
+          <p className="text-4xl lg:text-[8rem] font-serif capitalize">
             {words[count]}
           </p>
         </span>
@@ -219,7 +217,7 @@ function Hero() {
               duration: 0.5,
               ease: [0.4, 0.0, 0.2, 1],
             }}
-            className="logo-container gap-6 text-[3.5rem] lg:text-[8rem] font-serif capitalize SecText"
+            className="logo-container gap-6 text-[2rem] lg:text-[8rem] font-serif capitalize SecText"
           >
             AJ
           </motion.div>
@@ -227,7 +225,7 @@ function Hero() {
 
         {count >= 4 && (
           <span className="z-50 absolute flex -top-[12px] left-2 bg-[#f28256] rounded-lg p-1">
-            <div className="text-[3rem] lg:text-[3rem] font-serif capitalize text-black">
+            <div className="text-[2rem] lg:text-[3rem] font-serif capitalize text-black">
               AJ
             </div>
           </span>

@@ -27,6 +27,7 @@ function About() {
     <div className="flex flex-col lg:gap-4 items-center justify-between overflow-hidden relative">
       <span className="absolute right-4 top-2 flex lg:flex-col gap-4">
         <button
+          onTouchStart={download}
           onClick={download}
           className="border-2 rounded-lg p-2 hover:bg-white/[0.4] font-bold"
         >
@@ -120,7 +121,7 @@ function About() {
         </span>
 
         <TextGenerateEffect
-          className="text-white capitalize font-sans font-normal italic text-xl/6 lg:text-[35px]/snug text-justify tracking-tighter overflow-hidden"
+          className="text-white capitalize font-sans font-normal italic text-base/6 lg:text-[35px]/snug text-justify tracking-tighter overflow-hidden"
           staggerdelay={0.1}
           duration={0.2}
           words=" Results-driven Full-Stack Developer with expertise in React, Next.js, Node.js, and TypeScript. Passionate

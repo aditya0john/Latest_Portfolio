@@ -4,14 +4,11 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 import { BentoGrid, BentoGridItem } from "./aceternity/BentoGrid";
-import {
-  IconTableColumn,
-} from "@tabler/icons-react";
 import Marquee from "./Marquee";
 
 export default function TechStack() {
   return (
-    <div className="PrmColor h-full w-full flex items-center justify-center overflow-hidden">
+    <div className="PrmColor h-full w-full flex items-center justify-center overflow-hidden ">
       <span className="flex">
         <motion.div
           initial={{
@@ -42,7 +39,7 @@ export default function TechStack() {
             ))}
         </motion.div>
 
-        <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem] z-50 p-4 lg:p-0">
+        <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem] z-50 p-4 lg:p-0 scale-75 lg:scale-100">
           {items.map((item, i) => (
             <BentoGridItem
               key={i}
@@ -50,7 +47,6 @@ export default function TechStack() {
               description={item.description}
               header={item.header}
               className={cn("[&>p:text-lg]", item.className)}
-              icon={item.icon}
             />
           ))}
         </BentoGrid>
@@ -124,6 +120,8 @@ const SkeletonOne = () => {
 
   return (
     <div
+      onTouchStart={() => setIsHovered(true)}
+      onTouchEnd={() => setIsHovered(false)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="flex flex-col items-center justify-center gap-2 h-full w-full overflow-hidden"
@@ -248,6 +246,7 @@ const SkeletonTwo = () => {
 
 const items = [
   {
+    title: "Hover/Touch",
     header: <SkeletonOne />,
     className: "col-span-3",
   },
@@ -258,6 +257,5 @@ const items = [
     ),
     header: <SkeletonTwo />,
     className: "col-span-3",
-    icon: <IconTableColumn className="h-4 w-4 text-white" />,
   },
 ];
