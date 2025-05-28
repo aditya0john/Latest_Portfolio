@@ -5,9 +5,6 @@ import Image from "next/image";
 
 import { BentoGrid, BentoGridItem } from "./aceternity/BentoGrid";
 import {
-  IconClipboardCopy,
-  IconFileBroken,
-  IconSignature,
   IconTableColumn,
 } from "@tabler/icons-react";
 import Marquee from "./Marquee";
