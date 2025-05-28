@@ -105,7 +105,7 @@ export default function Home() {
               sectionsRef.current[3] = el; // ✅ Assign the element
             }}
             data-section="projects"
-            className="snap-start SecColor h-screen"
+            className="snap-start SecColor h-screen flex items-center justify-center"
           >
             {activeSection === "projects" && <Projects />}
           </section>

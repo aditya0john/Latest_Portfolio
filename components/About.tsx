@@ -24,8 +24,8 @@ function About() {
   };
 
   return (
-    <div className="flex flex-col lg:gap-4 items-center overflow-hidden">
-      <span className="absolute right-4 top-4 flex flex-col gap-4">
+    <div className="flex flex-col lg:gap-4 items-center justify-between overflow-hidden relative">
+      <span className="absolute right-4 top-2 flex lg:flex-col gap-4">
         <button
           onClick={download}
           className="border-2 rounded-lg p-2 hover:bg-white/[0.4] font-bold"
@@ -36,7 +36,7 @@ function About() {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="h-7 w-7"
+            className="size-7"
           >
             <path
               strokeLinecap="round"
@@ -110,7 +110,7 @@ function About() {
         </Link>
       </span>
       <div className="flex flex-col gap-4 items-center justify-center p-8 lg:max-w-7xl scale-90 lg:scale-100">
-        <span className="text-3xl lg:text-6xl text-center font-extrabold text-neutral-300 z-50">
+        <span className="text-4xl lg:text-6xl text-center font-extrabold text-neutral-300 z-50">
           Build
           <FlipWords
             words={words}
@@ -120,7 +120,7 @@ function About() {
         </span>
 
         <TextGenerateEffect
-          className="text-white capitalize font-sans font-normal italic text-base/6 lg:text-[35px]/snug text-justify tracking-tighter overflow-hidden"
+          className="text-white capitalize font-sans font-normal italic text-xl/6 lg:text-[35px]/snug text-justify tracking-tighter overflow-hidden"
           staggerdelay={0.1}
           duration={0.2}
           words=" Results-driven Full-Stack Developer with expertise in React, Next.js, Node.js, and TypeScript. Passionate
@@ -131,7 +131,7 @@ function About() {
         />
       </div>
 
-      <div className="overflow-hidden p-4 flex bg-orange-100/[0.2]">
+      <div className="overflow-hidden py-4 flex bg-orange-100/[0.2]">
         <motion.div
           className="flex gap-0 whitespace-nowrap"
           animate={{ x: ["0%", "-50%"] }} // Moves half-way, loops infinitely

@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -10,6 +10,7 @@ import {
   IconSignature,
   IconTableColumn,
 } from "@tabler/icons-react";
+import Marquee from "./Marquee";
 
 export default function TechStack() {
   return (
@@ -37,14 +38,14 @@ export default function TechStack() {
             .map((_, i) => (
               <p
                 key={i}
-                className="text-5xl/tight -rotate-2 font-extrabold noise bg-clip-text text-transparent"
+                className={`text-5xl/tight ${i % 2 == 0 ? "rotate-2" : "-rotate-2"} font-extrabold noise bg-clip-text text-transparent`}
               >
                 TECHSTACK
               </p>
             ))}
         </motion.div>
 
-        <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem] z-50 p-4 lg:p-0 scale-75 lg:scale-100">
+        <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem] z-50 p-4 lg:p-0">
           {items.map((item, i) => (
             <BentoGridItem
               key={i}
@@ -79,7 +80,7 @@ export default function TechStack() {
             .map((_, i) => (
               <p
                 key={i}
-                className="text-5xl/tight -rotate-2 font-extrabold noise bg-clip-text text-transparent"
+                className={`text-5xl/tight ${i % 2 == 0 ? "-rotate-2" : "rotate-2"} font-extrabold noise bg-clip-text text-transparent`}
               >
                 TECHSTACK
               </p>
@@ -91,172 +92,79 @@ export default function TechStack() {
 }
 
 const SkeletonOne = () => {
-  const variants = {
-    initial: {
-      x: 0,
+  const FrontEnd = [
+    { id: 1, name: "Next.js", src: "/next.png" },
+    { id: 2, name: "React.js", src: "/React.png" },
+    { id: 3, name: "Tailwind CSS", src: "/tailwind.png" },
+    { id: 4, name: "Typescript", src: "/typescript.png" },
+    {
+      id: 5,
+      name: "Framer Motion",
+      src: "/Techstack logos/Framer Motion.jpeg",
     },
-    animate: {
-      x: 10,
-      rotate: 5,
-      transition: {
-        duration: 0.2,
-      },
-    },
-  };
-  const variantsSecond = {
-    initial: {
-      x: 0,
-    },
-    animate: {
-      x: -10,
-      rotate: -5,
-      transition: {
-        duration: 0.2,
-      },
-    },
-  };
+  ];
+
+  const BackEnd = [
+    { id: 1, name: "Node.js", src: "/Techstack logos/node.webp" },
+    { id: 2, name: "Express.js", src: "/Techstack logos/expressJs.png" },
+    { id: 3, name: "REST API", src: "/rest api.svg" },
+    { id: 4, name: "Goodle Auth", src: "/Techstack logos/google auth.png" },
+    { id: 5, name: "MongoDB", src: "/Techstack logos/MongoDb.gif" },
+    { id: 6, name: "Mongoose", src: "/Techstack logos/mongoose.png" },
+    { id: 7, name: "SQL", src: "/Techstack logos/sql.webp" },
+    { id: 8, name: "PostgreSQL", src: "/postgres.png" },
+  ];
+
+  const DevOps = [
+    { id: 1, name: "Git & Github", src: "/Techstack logos/Git Github.webp" },
+    { id: 2, name: "Vercel", src: "/vercel.svg" },
+    { id: 3, name: "Resend", src: "/Techstack logos/resend.jpg" },
+    { id: 4, name: "Figma", src: "/Techstack logos/figma.jpeg" },
+    { id: 5, name: "Spline", src: "/Techstack logos/spline.jpeg" },
+  ];
+
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <motion.div
-      initial="initial"
-      whileHover="animate"
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
+    <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="flex flex-col items-center justify-center gap-2 h-full w-full overflow-hidden"
     >
-      <motion.div
-        variants={variants}
-        className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center space-x-2 bg-white dark:bg-black"
-      >
-        <Image
-          src={"/next.svg"}
-          alt="image"
-          height={30}
-          width={30}
-          className="invert"
-        />
-        <div className="italic text-xs text-black">Next.js</div>
-      </motion.div>
-      <motion.div
-        variants={variantsSecond}
-        className="flex flex-row justify-between rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center space-x-2 w-3/4 ml-auto bg-white dark:bg-black"
-      >
-        <div className="italic text-xs text-black">Typescript</div>
-        <Image
-          src={"/ts.svg"}
-          alt="image"
-          height={30}
-          width={30}
-          className="rounded-full"
-        />
-      </motion.div>
-      <motion.div
-        variants={variants}
-        className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center space-x-2 bg-white dark:bg-black"
-      >
-        <Image src={"/tail.svg"} alt="image" height={30} width={30} />
-        <div className="italic text-xs text-black">Tailwind CSS</div>
-      </motion.div>
-    </motion.div>
+      <div className="bg-white/[0.4] h-24 w-full relative flex items-center justify-center rounded-lg hover:cursor-">
+        {!isHovered ? (
+          <div className="text-3xl lg:text-5xl PrmText font-bold font-mono">
+            {" "}
+            FrontEnd{" "}
+          </div>
+        ) : (
+          <Marquee words={FrontEnd} />
+        )}
+      </div>
+      <div className="bg-white/[0.4] h-24 w-full relative flex items-center justify-center rounded-lg">
+        {!isHovered ? (
+          <div className="text-3xl lg:text-5xl PrmText font-bold font-mono">
+            {" "}
+            BackEnd
+          </div>
+        ) : (
+          <Marquee words={BackEnd} />
+        )}
+      </div>
+      <div className="bg-white/[0.4] h-24 w-full relative flex items-center justify-center rounded-lg">
+        {!isHovered ? (
+          <div className="text-3xl lg:text-5xl PrmText font-bold font-mono">
+            CI/CD &amp; DevOps
+          </div>
+        ) : (
+          <Marquee words={DevOps} />
+        )}
+      </div>
+    </div>
   );
 };
+
 const SkeletonTwo = () => {
-  const variants = {
-    initial: {
-      x: 0,
-    },
-    animate: {
-      x: 10,
-      rotate: 5,
-      transition: {
-        duration: 0.2,
-      },
-    },
-  };
-  const variantsSecond = {
-    initial: {
-      x: 0,
-    },
-    animate: {
-      x: -10,
-      rotate: -5,
-      transition: {
-        duration: 0.2,
-      },
-    },
-  };
-
-  return (
-    <motion.div
-      initial="initial"
-      whileHover="animate"
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
-    >
-      <motion.div
-        variants={variants}
-        className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center space-x-2 bg-white dark:bg-black"
-      >
-        <Image
-          src={"/next.svg"}
-          alt="image"
-          height={30}
-          width={30}
-          className="invert"
-        />
-        <div className="italic text-xs text-black">Next.js</div>
-      </motion.div>
-      <motion.div
-        variants={variantsSecond}
-        className="flex flex-row justify-between rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center space-x-2 w-3/4 ml-auto bg-white dark:bg-black"
-      >
-        <div className="italic text-xs text-black">Typescript</div>
-        <Image
-          src={"/ts.svg"}
-          alt="image"
-          height={30}
-          width={30}
-          className="rounded-full"
-        />
-      </motion.div>
-      <motion.div
-        variants={variants}
-        className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center space-x-2 bg-white dark:bg-black"
-      >
-        <Image src={"/tail.svg"} alt="image" height={30} width={30} />
-        <div className="italic text-xs text-black">Tailwind CSS</div>
-      </motion.div>
-    </motion.div>
-  );
-};
-const SkeletonThree = () => {
-  const variants = {
-    initial: {
-      backgroundPosition: "0 50%",
-    },
-    animate: {
-      backgroundPosition: ["0, 50%", "100% 50%", "0 50%"],
-    },
-  };
-  return (
-    <motion.div
-      initial="initial"
-      animate="animate"
-      variants={variants}
-      transition={{
-        duration: 5,
-        repeat: Infinity,
-        repeatType: "reverse",
-      }}
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2"
-      style={{
-        background:
-          "linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)",
-        backgroundSize: "400% 400%",
-      }}
-    >
-      <motion.div className="h-full w-full rounded-lg"></motion.div>
-    </motion.div>
-  );
-};
-const SkeletonFour = () => {
   const first = {
     initial: {
       x: 20,
@@ -343,45 +251,15 @@ const SkeletonFour = () => {
 
 const items = [
   {
-    title: "FrontEnd",
-    description: (
-      <p className="text-sm PrmText">
-        Elevate your brand with seamless, interactive user experiences.
-      </p>
-    ),
     header: <SkeletonOne />,
-    className: "col-span-1",
-    icon: <IconClipboardCopy className="h-4 w-4 text-white" />,
-  },
-  {
-    title: "BackEnd",
-    description: (
-      <p className="text-sm PrmText">
-        Your data, logic, and performance optimized to perfection.
-      </p>
-    ),
-    header: <SkeletonTwo />,
-    className: "col-span-1",
-    icon: <IconFileBroken className="h-4 w-4 text-white" />,
-  },
-  {
-    title: "FullStack",
-    description: (
-      <p className="text-sm PrmText">
-        From sleek, engaging UIs to rock-solid backend systems, Lets build
-        something extraordinary together!
-      </p>
-    ),
-    header: <SkeletonThree />,
-    className: "col-span-1 hidden lg:flex",
-    icon: <IconSignature className="h-4 w-4 text-white" />,
+    className: "col-span-3",
   },
   {
     title: "FAST, RELIABLE, GLOBALLY USED, SECURE TECH",
     description: (
       <p className="text-sm PrmText">All the TECHNOLOGY you name it I do it.</p>
     ),
-    header: <SkeletonFour />,
+    header: <SkeletonTwo />,
     className: "col-span-3",
     icon: <IconTableColumn className="h-4 w-4 text-white" />,
   },

@@ -52,18 +52,18 @@ function Contact() {
   };
 
   return (
-    <div className="h-full w-full flex flex-col p-3 items-center justify-center overflow-hidden font-serif">
-      <div className="lg:bg-gradient-to-r from-[#DE8359] to-[#D86063] p-2 rounded-lg w-full mb-3">
-        <ul className="text-4xl font-bold uppercase flex justify-center p-2">
-          Contact form
+    <div className="h-full w-full flex flex-col lg:flex-row gap-6 p-3 items-center justify-center overflow-hidden font-serif">
+      <div className="h-[50vh] lg:h-[38rem] noiseReverse p-2 rounded-lg w-full">
+        <ul className="text-2xl lg:text-4xl font-bold uppercase flex justify-center p-2">
+          Send me a message
         </ul>
         <hr className="border border-neutral-400" />
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-4 p-2">
+        <form className="flex flex-col justify-center h-full gap-4 p-2">
           <div className="flex flex-col gap-2">
             <input
               type="text"
               onChange={(e) => setDetails({ ...details, name: e.target.value })}
-              className="bg-white text-black rounded-md border border-black p-2 w-full change placeholder-black/[0.4]"
+              className="bg-white outline-none text-black rounded-md p-2 w-full change placeholder-black/[0.4]"
               placeholder="Name"
             />
             <input
@@ -71,14 +71,14 @@ function Contact() {
               onChange={(e) =>
                 setDetails({ ...details, email: e.target.value })
               }
-              className="bg-white text-black rounded-md border border-black p-2 w-full change placeholder-black/[0.4]"
+              className="bg-white outline-none text-black rounded-md p-2 w-full change placeholder-black/[0.4]"
               placeholder="E-mail"
             />
             <textarea
               onChange={(e) =>
                 setDetails({ ...details, message: e.target.value })
               }
-              className="bg-white min-h-40 text-black rounded-md border border-black p-2 w-full change placeholder-black/[0.4]"
+              className="bg-white outline-none lg:min-h-60 text-black rounded-md p-2 w-full change placeholder-black/[0.4]"
               placeholder="Write your message here..."
             />
           </div>
@@ -86,7 +86,7 @@ function Contact() {
           <button
             onClick={submit}
             type="submit"
-            className="bg-slate-200/[0.4] min-h-16 text-2xl md:text-6xl font-bold rounded flex items-center justify-center hover:bg-green-400 transition duration-300"
+            className="bg-slate-200/[0.4] border-2 border-white min-h-16 text-2xl md:text-6xl font-bold rounded flex items-center justify-center hover:bg-green-400 transition duration-300"
           >
             SEND MAIL{" "}
             <svg
@@ -107,10 +107,10 @@ function Contact() {
         </form>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-3">
+      <div className="flex flex-col w-full gap-3">
         <div className="noise p-2 rounded-lg w-full ">
-          <ul className="text-2xl font-bold text-uppercase flex justify-center p-2">
-            contact us
+          <ul className="text-2xl font-bold uppercase flex justify-center p-2">
+            contact
           </ul>
           <hr className="border border-neutral-400" />
           <ul className="wrapper">
@@ -164,8 +164,8 @@ function Contact() {
         </div>
 
         <div className="noise p-2 rounded-lg w-full ">
-          <ul className="text-2xl font-bold text-uppercase flex justify-center p-2">
-            follow us on
+          <ul className="text-2xl font-bold uppercase flex justify-center p-2">
+            follow
           </ul>
           <hr className="border border-neutral-400" />
           <ul className="wrapper">

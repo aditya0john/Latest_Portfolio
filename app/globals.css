@@ -348,3 +348,7 @@ body {
 .wrapper .instagram:hover .tooltip::before {
   background: red;
 }
+
+.motion.div{
+  will-change: transform;
+}

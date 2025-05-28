@@ -1,42 +1,35 @@
 "use client";
 import { motion } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 
 function Hero() {
   const [isloading, setIsLoading] = useState(true);
-  const words = useRef(["W E L C O M E", "I AM", "ADITYA JOHN", " "]);
-  const FrontEnd = [
-    "Next.js",
-    "React.js",
-    "Tailwind CSS",
-    "TypeScript",
-    "React native",
-  ];
-  const BackEnd = [
-    "Node.js",
-    "Express.js",
-    "MongoDB",
-    "PostgreSQL",
-    "Supabase",
-  ];
-  const BackgroundWords = [
-    "ADITYA",
-    "JOHN",
-    "ADITYA",
-    "JOHN",
-    "ADITYA",
-    "JOHN",
-  ];
+  const words = useMemo(
+    () => ["W E L C O M E", "I AM", "ADITYA JOHN", " "],
+    []
+  );
+  const FrontEnd = useMemo(
+    () => ["Next.js", "React.js", "Tailwind CSS", "TypeScript", "React native"],
+    []
+  );
+  const BackEnd = useMemo(
+    () => ["Node.js", "Express.js", "MongoDB", "PostgreSQL", "Supabase"],
+    []
+  );
+  const BackgroundWords = useMemo(
+    () => ["ADITYA", "JOHN", "ADITYA", "JOHN", "ADITYA", "JOHN"],
+    []
+  );
 
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (count <= words.current.length) {
-      const timer = setTimeout(() => {
+    if (count < words.length) {
+      const interval = setInterval(() => {
         setCount((prev) => prev + 1);
       }, 3400);
-      return () => clearTimeout(timer); // Cleanup to prevent memory leaks
+      return () => clearInterval(interval);
     } else {
       setIsLoading(false);
     }
@@ -107,10 +100,13 @@ function Hero() {
         >
           {count > 3 && (
             <Image
-              src={"/dithered-ME.png"}
+              src="/MEE.png"
               alt="My image"
-              height={80}
               width={80}
+              height={80}
+              priority // ✅ Loads it earlier without layout shift
+              placeholder="blur"
+              blurDataURL="/blur-placeholder.png"
               className="relative z-50 lg:right-0 rounded-full h-[600px] w-[600px] object-cover -rotate-6 lg:hover:scale-[1.1] lg:hover:-rotate-2 transition duration-300"
             />
           )}
@@ -203,7 +199,7 @@ function Hero() {
 
         <span className="absolute SecText">
           <p className="text-[3.5rem] lg:text-[8rem] font-serif capitalize">
-            {words.current[count]}
+            {words[count]}
           </p>
         </span>
 
