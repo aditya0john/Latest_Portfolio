@@ -28,7 +28,7 @@ export function PopoverForm({
   showCloseButton = false,
 }: PopoverFormProps) {
   const ref = useRef<HTMLDivElement>(null);
-  useClickOutside(ref, () => setOpen(false));
+  useClickOutside(ref as React.RefObject<HTMLElement>, () => setOpen(false));
 
   return (
     <div
