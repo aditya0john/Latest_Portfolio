@@ -14,7 +14,6 @@ function Contact() {
   const [numberCopied, setNumberCopied] = useState(false);
   const [formState, setFormState] = useState<FormState>("idle");
   const [open, setOpen] = useState(false);
-  const [feedback, setFeedback] = useState("");
   const [details, setDetails] = useState({
     name: "",
     email: "",
@@ -48,8 +47,7 @@ function Contact() {
     copyPhoneNumber();
   };
 
-  const submit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const submit = async () => {
     const response = await axios.post("/api/sendMail", {
       email: details.email,
       name: details.name,
@@ -57,6 +55,7 @@ function Contact() {
     });
 
     if (response.status === 200) {
+      setFormState("success");
       alert("Mail Sent Successfully");
     } else {
       alert("Failed to send mail");
@@ -76,8 +75,7 @@ function Contact() {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              if (!feedback) return;
-              // submit();
+              submit();
             }}
             className="flex flex-col gap-6"
           >

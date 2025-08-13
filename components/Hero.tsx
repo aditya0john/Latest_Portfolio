@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 
 function Hero() {

@@ -16,7 +16,6 @@ import {
   Pagination,
 } from "swiper/modules";
 import Link from "next/link";
-import { CometCard } from "../aceternity/CometCard";
 
 interface ProjectProps {
   project: {
