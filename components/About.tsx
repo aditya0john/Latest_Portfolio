@@ -29,14 +29,14 @@ function About() {
         <button
           onTouchStart={download}
           onClick={download}
-          className="border-2 rounded-lg p-2 hover:bg-white/[0.4] font-bold"
+          className="border-2 rounded-lg p-2 bg-white/[0.4] font-bold"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="1.5"
-            stroke="currentColor"
+            stroke="white"
             className="size-7"
           >
             <path
@@ -49,8 +49,8 @@ function About() {
 
         <Link
           target="_blank"
-          href={"https://github.com/aditya0john?tab=repositories"}
-          className="border-2 rounded-lg text-xs p-2 hover:bg-white/[0.4] font-bold"
+          href={"https://github.com/aditya0john"}
+          className="border-2 rounded-lg text-xs p-2 bg-white/[0.4] font-bold"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -92,14 +92,14 @@ function About() {
 
         <Link
           href="mailto:johnaditya46@gmail.com?body=My custom mail body"
-          className="border-2 rounded-lg p-2 hover:bg-white/[0.4] font-bold"
+          className="border-2 rounded-lg p-2 bg-white/[0.4] font-bold"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="1.5"
-            stroke="currentColor"
+            stroke="white"
             className="size-7"
           >
             <path

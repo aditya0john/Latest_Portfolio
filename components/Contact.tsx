@@ -1,8 +1,20 @@
 import React, { useState } from "react";
 import axios from "axios";
+import PopoverForm, {
+  PopoverFormButton,
+  PopoverFormCutOutLeftIcon,
+  PopoverFormCutOutRightIcon,
+  PopoverFormSeparator,
+  PopoverFormSuccess,
+} from "./SkipperUI/popover-form";
+
+type FormState = "idle" | "loading" | "success";
 
 function Contact() {
   const [numberCopied, setNumberCopied] = useState(false);
+  const [formState, setFormState] = useState<FormState>("idle");
+  const [open, setOpen] = useState(false);
+  const [feedback, setFeedback] = useState("");
   const [details, setDetails] = useState({
     name: "",
     email: "",
@@ -52,63 +64,75 @@ function Contact() {
   };
 
   return (
-    <div className="h-full w-full flex flex-col lg:flex-row gap-6 p-3 items-center justify-center overflow-hidden font-serif">
-      <div className="h-[50vh] lg:h-[38rem] noiseReverse p-2 rounded-lg w-full">
-        <ul className="text-2xl lg:text-4xl font-bold uppercase flex justify-center p-2">
-          Send me a message
-        </ul>
-        <hr className="border border-neutral-400" />
-        <form className="flex flex-col justify-center h-full gap-4 p-2">
-          <div className="flex flex-col gap-2">
-            <input
-              type="text"
-              onChange={(e) => setDetails({ ...details, name: e.target.value })}
-              className="bg-white outline-none text-black rounded-md p-2 w-full change placeholder-black/[0.4]"
-              placeholder="Name"
-            />
-            <input
-              type="email"
-              onChange={(e) =>
-                setDetails({ ...details, email: e.target.value })
-              }
-              className="bg-white outline-none text-black rounded-md p-2 w-full change placeholder-black/[0.4]"
-              placeholder="E-mail"
-            />
-            <textarea
-              onChange={(e) =>
-                setDetails({ ...details, message: e.target.value })
-              }
-              className="bg-white outline-none lg:min-h-60 text-black rounded-md p-2 w-full change placeholder-black/[0.4]"
-              placeholder="Write your message here..."
-            />
-          </div>
-
-          <button
-            onClick={submit}
-            type="submit"
-            className="bg-slate-200/[0.4] border-2 border-white min-h-16 text-2xl md:text-6xl font-bold rounded flex items-center justify-center hover:bg-green-400 transition duration-300"
+    <div className="h-screen w-full flex flex-col gap-6 items-center justify-center overflow-hidden font-serif">
+      <PopoverForm
+        title="feedback"
+        open={open}
+        height="300px"
+        setOpen={setOpen}
+        showCloseButton={formState !== "success"}
+        showSuccess={formState === "success"}
+        openChild={
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (!feedback) return;
+              // submit();
+            }}
+            className="flex flex-col gap-6"
           >
-            SEND MAIL{" "}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-8 md:w-20 h-8 md:h-20"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"
+            <div>
+              <textarea
+                autoFocus
+                onChange={(e) =>
+                  setDetails({ ...details, message: e.target.value })
+                }
+                className="bg-white outline-none lg:min-h-32 text-black rounded-md p-2 w-full change placeholder-black/[0.4]"
+                placeholder="Write your feedback here..."
               />
-            </svg>
-          </button>
-        </form>
-      </div>
+              <div className="relative flex h-2 items-center px-[10px]">
+                <PopoverFormSeparator />
+                <div className="absolute left-0 top-0 -translate-x-[1.5px] -translate-y-1/2">
+                  <PopoverFormCutOutLeftIcon />
+                </div>
+                <div className="absolute right-0 top-0 translate-x-[1.5px] -translate-y-1/2 rotate-180">
+                  <PopoverFormCutOutRightIcon />
+                </div>
+              </div>
+              <input
+                type="email"
+                onChange={(e) =>
+                  setDetails({ ...details, email: e.target.value })
+                }
+                className="bg-white outline-none text-black rounded-md p-2 w-full change placeholder-black/[0.4]"
+                placeholder="E-mail"
+              />
+            </div>
+            <div className="relative flex h-12 items-center px-[10px]">
+              <PopoverFormSeparator />
+              <div className="absolute left-0 top-0 -translate-x-[1.5px] -translate-y-1/2">
+                <PopoverFormCutOutLeftIcon />
+              </div>
+              <div className="absolute right-0 top-0 translate-x-[1.5px] -translate-y-1/2 rotate-180">
+                <PopoverFormCutOutRightIcon />
+              </div>
+              <PopoverFormButton
+                text={"submit"}
+                loading={formState === "loading"}
+              />
+            </div>
+          </form>
+        }
+        successChild={
+          <PopoverFormSuccess
+            title="Feedback Received"
+            description="Thank you for supporting our project!"
+          />
+        }
+      />
 
-      <div className="flex flex-col w-full gap-3">
-        <div className="noise p-2 rounded-lg w-full ">
+      <div className="flex flex-col w-[60vw] gap-3">
+        <div className="noise rounded-lg w-full ">
           <ul className="text-2xl font-bold uppercase flex justify-center p-2">
             contact
           </ul>

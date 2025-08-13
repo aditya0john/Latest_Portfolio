@@ -1,10 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 
 function Hero() {
   const [isloading, setIsLoading] = useState(true);
+
   const words = useMemo(
     () => ["W E L C O M E", "I AM", "ADITYA JOHN", " "],
     []
@@ -201,15 +202,10 @@ function Hero() {
           </p>
         </span>
 
-        {count >= 3 && isloading && count < 4 && (
+        {count >= 3 && isloading && (
           <motion.div
-            initial={{
-              opacity: 0,
-              y: 0,
-              x: 0,
-            }}
             animate={{
-              opacity: 1,
+              opacity: [0, 1],
               y: [0, -5, 0],
               x: 0,
             }}
@@ -224,11 +220,20 @@ function Hero() {
         )}
 
         {count >= 4 && (
-          <span className="z-50 absolute flex -top-[12px] left-2 bg-[#f28256] rounded-lg p-1">
+          <motion.span
+            animate={{
+              height: ["0vh", "10vh"],
+              transition: {
+                duration: 1,
+                ease: "easeInOut",
+              },
+            }}
+            className="z-50 absolute flex -top-[12px] left-2 bg-[#f28256] rounded-lg p-1"
+          >
             <div className="text-[2rem] lg:text-[3rem] font-serif capitalize text-black">
               AJ
             </div>
-          </span>
+          </motion.span>
         )}
       </div>
     </div>

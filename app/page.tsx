@@ -5,9 +5,10 @@ import { useEffect, useRef, useState } from "react";
 
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Projects from "@/components/Projects";
 import TechStack from "@/components/TechStack";
 import Contact from "@/components/Contact";
+import { projects } from "@/data";
+import { CardCarousel } from "@/components/SkipperUI/SwiperSlide";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<null | string>(null);
@@ -93,7 +94,7 @@ export default function Home() {
               sectionsRef.current[2] = el; // ✅ Assign the element
             }}
             data-section="techstack"
-            className="h-screen PrmColor snap-start flex items-center justify-center"
+            className="h-screen bg-gradient-to-br from-[#FFF9F3] to-[#FFEFEB] snap-start flex items-center justify-center"
           >
             {activeSection === "techstack" && <TechStack />}
           </section>
@@ -107,7 +108,9 @@ export default function Home() {
             data-section="projects"
             className="snap-start SecColor h-screen flex items-center justify-center"
           >
-            {activeSection === "projects" && <Projects />}
+            {activeSection === "projects" && (
+              <CardCarousel project={projects} />
+            )}
           </section>
 
           <section
@@ -116,7 +119,7 @@ export default function Home() {
               sectionsRef.current[4] = el; // ✅ Assign the element
             }}
             data-section="contact"
-            className="snap-start PrmColor h-screen"
+            className="snap-start bg-gradient-to-br from-[#FFF9F3] to-[#FFF9F3] h-screen"
           >
             {activeSection === "contact" && <Contact />}
           </section>

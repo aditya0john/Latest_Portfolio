@@ -10,14 +10,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.2.3",
     "@react-three/fiber": "^9.0.4",
     "@splinetool/react-spline": "^4.0.0",
     "@tabler/icons-react": "^3.30.0",
     "@types/three": "^0.174.0",
     "axios": "^1.9.0",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.0.6",
+    "framer-motion": "^12.23.12",
     "gl-matrix": "^3.4.3",
+    "lucide-react": "^0.536.0",
     "mini-svg-data-uri": "^1.4.4",
     "motion": "^12.4.7",
     "next": "15.1.6",
@@ -25,7 +28,9 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "resend": "^4.5.0",
-    "tailwind-merge": "^3.0.2",
+    "swiper": "^11.2.10",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss-animate": "^1.0.7",
     "three": "^0.174.0"
   },
   "devDependencies": {
