@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 function Marquee({
-  words,
+  Photo,
 }: {
-  words: { name: string; id: number; src: string }[];
+  Photo: { name: string; id: number; src: string }[];
 }) {
-  const repeatWords = [...words, ...words]; // Duplicate words for continuous effect
+  const repeatPhoto = [...Photo, ...Photo]; // Duplicate words for continuous effect
 
   return (
     <div className="relative flex items-center justify-center">
@@ -20,7 +20,7 @@ function Marquee({
           ease: "linear",
         }}
       >
-        {repeatWords.map(({ name, id, src }, index) => (
+        {repeatPhoto.map(({ name, id, src }, index) => (
           <span
             key={`${id}-${index}`}
             className="text-2xl lg:text-4xl text-black font-extrabold uppercase font-mono flex items-center justify-center mx-8"

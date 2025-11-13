@@ -55,7 +55,7 @@ function Hero() {
               duration: 0.5,
               ease: [0.4, 0.0, 0.2, 1],
             }}
-            className="text-black max-w-sm translate-x-6 hidden lg:flex flex-col gap-6"
+            className="text-black max-w-sm translate-x-6 hidden lg:flex flex-col gap-6 p-4 rounded-2xl"
           >
             {Array(5)
               .fill(null)
@@ -89,6 +89,15 @@ function Hero() {
               "220px",
               "600px",
             ],
+            borderRadius: [
+              "50%",  // start fully round
+              "50%",
+              "50%",
+              "50%",
+              "50%",
+              "50%",
+              "0 0 50% 50% / 0 0 5% 5%",   // at the end (keyframe 0.95–1), becomes rectangle
+            ],
             x: [-300, 0, 0, 0, 0, 0, 0],
             y: [-100, 0, 0, 190, 180, 190, 0],
           }}
@@ -97,16 +106,16 @@ function Hero() {
             times: [0, 0.15, 0.8, 0.84, 0.88, 0.95, 1], // Keyframe percentages
             ease: "easeInOut",
           }}
-          className="rounded-full noise lg:overflow-hidden relative mx-10 overflow-hidden"
+          className={` noise lg:overflow-hidden relative mx-10 overflow-hidden`}
         >
           {count > 3 && (
             <Image
-              src="/MEE.png"
+              src="/ME.png"
               alt="My image"
               width={80}
               height={80}
               priority // ✅ Loads it earlier without layout shift
-              className="absolute z-50 bottom-0 rounded-full h-[400px] lg:h-[600px] w-[400px] lg:w-[600px] object-cover lg:-rotate-6 lg:hover:scale-[1.1] lg:hover:-rotate-2 transition duration-300 "
+              className="absolute z-50 bottom-0 h-[400px] lg:h-[600px] w-[400px] lg:w-[600px] object-cover lg:hover:scale-[1.1] lg:hover:-rotate-2 transition duration-300 "
             />
           )}
 
@@ -230,7 +239,7 @@ function Hero() {
             }}
             className="z-50 absolute flex -top-[12px] left-2 bg-[#f28256] rounded-lg p-1"
           >
-            <div className="text-[2rem] lg:text-[3rem] font-serif capitalize text-black">
+            <div className="text-[2rem] lg:text-[3rem] font-serif capitalize text-white">
               AJ
             </div>
           </motion.span>

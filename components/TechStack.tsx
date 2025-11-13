@@ -133,7 +133,7 @@ const SkeletonOne = () => {
             FrontEnd{" "}
           </div>
         ) : (
-          <Marquee words={FrontEnd} />
+          <Marquee Photo={FrontEnd} />
         )}
       </div>
       <div className="bg-white/[0.4] h-24 w-full relative flex items-center justify-center rounded-lg">
@@ -143,7 +143,7 @@ const SkeletonOne = () => {
             BackEnd
           </div>
         ) : (
-          <Marquee words={BackEnd} />
+          <Marquee Photo={BackEnd} />
         )}
       </div>
       <div className="bg-white/[0.4] h-24 w-full relative flex items-center justify-center rounded-lg">
@@ -152,7 +152,7 @@ const SkeletonOne = () => {
             CI/CD &amp; DevOps
           </div>
         ) : (
-          <Marquee words={DevOps} />
+          <Marquee Photo={DevOps} />
         )}
       </div>
     </div>

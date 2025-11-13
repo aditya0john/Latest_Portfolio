@@ -20,6 +20,7 @@
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.12",
     "gl-matrix": "^3.4.3",
+    "gsap": "^3.13.0",
     "lucide-react": "^0.536.0",
     "mini-svg-data-uri": "^1.4.4",
     "motion": "^12.4.7",
