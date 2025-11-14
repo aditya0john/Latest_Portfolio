@@ -8,7 +8,7 @@ import Marquee from "./Marquee";
 
 export default function TechStack() {
   return (
-    <div className="h-full w-full flex items-center justify-center overflow-hidden ">
+    <div className="h-full w-full flex items-center justify-center overflow-hiddenhover">
       <span className="flex">
         <motion.div
           initial={{

@@ -9,7 +9,7 @@ import About from "@/components/About";
 import TechStack from "@/components/TechStack";
 import Contact from "@/components/Contact";
 import { projects } from "@/data";
-import CardSwap, { Card, CardProps } from "@/components/ReactBits/CardSwap";
+import CardSwap, { Card } from "@/components/ReactBits/CardSwap";
 import Image from "next/image";
 import Link from "next/link";
 

@@ -46,7 +46,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  animation: moveToTop 2s ease-out 1.8s;
+  animation: moveToTop 2s ease-out 1.8s forwards;
 }
 
 @keyframes moveToTop {

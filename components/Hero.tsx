@@ -34,7 +34,7 @@ function Hero() {
     } else {
       setIsLoading(false);
     }
-  }, [count]);
+  }, [count, words.length]);
 
   return (
     <div className="relative ">
@@ -72,55 +72,62 @@ function Hero() {
         <motion.div
           animate={{
             height: [
-              "220px",
-              "220px",
-              "220px",
-              "220px",
-              "220px",
-              "220px",
+              "440px",
+              "440px",
+              "440px",
+              "440px",
+              "440px",
+              "620px",
+              "590px",
               "600px",
             ],
             width: [
-              "220px",
-              "220px",
-              "220px",
-              "220px",
-              "220px",
-              "220px",
+              "440px",
+              "440px",
+              "440px",
+              "440px",
+              "440px",
+              "620px",
+              "590px",
               "600px",
             ],
             borderRadius: [
-              "50%",  // start fully round
               "50%",
               "50%",
               "50%",
               "50%",
               "50%",
-              "0 0 50% 50% / 0 0 5% 5%",   // at the end (keyframe 0.95–1), becomes rectangle
+              "0%",
+              "20%",
+              "20%",
             ],
             x: [-300, 0, 0, 0, 0, 0, 0],
-            y: [-100, 0, 0, 190, 180, 190, 0],
+            y: [-100, 0, 0, 0, 0, 0, 0],
           }}
           transition={{
             duration: 13,
-            times: [0, 0.15, 0.8, 0.84, 0.88, 0.95, 1], // Keyframe percentages
+            times: [0, 0.15, 0.8, 0.84, 0.85, 0.95, 0.98, 1], // Keyframe percentages
             ease: "easeInOut",
           }}
-          className={` noise lg:overflow-hidden relative mx-10 overflow-hidden`}
+          className={`noise lg:overflow-hidden relative mx-10 overflow-hidden`}
         >
-          {count > 3 && (
+          {count > 3 && <motion.div
+            animate={{ y: [1000, 0] }}
+            transition={{ duration: 1, delay: 0.3, ease: "easeInOut" }}
+            className="w-full h-full flex flex-col justify-center z-50 absolute"
+          >
             <Image
               src="/ME.png"
               alt="My image"
               width={80}
               height={80}
               priority // ✅ Loads it earlier without layout shift
-              className="absolute z-50 bottom-0 h-[400px] lg:h-[600px] w-[400px] lg:w-[600px] object-cover lg:hover:scale-[1.1] lg:hover:-rotate-2 transition duration-300 "
+              className={`bottom-0 h-[400px] lg:h-[600px] w-[400px] lg:w-[600px] object-cover lg:hover:scale-[1.1] lg:hover:-rotate-2`}
             />
-          )}
+          </motion.div>}
 
           {count >= 4 && (
-            <div className="absolute flex flex-col justify-between inset-0">
+            <div className="absolute flex flex-col justify-between inset-0 z-0">
               {Array.from({ length: 6 }).map((_, rowIndex) => {
                 const isEven = rowIndex % 2 === 0;
                 return (
@@ -211,7 +218,7 @@ function Hero() {
           </p>
         </span>
 
-        {count >= 3 && isloading && (
+        {count >= 3 && (
           <motion.div
             animate={{
               opacity: [0, 1],
@@ -232,6 +239,8 @@ function Hero() {
           <motion.span
             animate={{
               height: ["0vh", "10vh"],
+              color: ["#000", "#fff"],
+              opacity: [0, 1],
               transition: {
                 duration: 1,
                 ease: "easeInOut",
@@ -239,7 +248,7 @@ function Hero() {
             }}
             className="z-50 absolute flex -top-[12px] left-2 bg-[#f28256] rounded-lg p-1"
           >
-            <div className="text-[2rem] lg:text-[3rem] font-serif capitalize text-white">
+            <div className="text-[2rem] lg:text-[3rem] font-serif capitalize">
               AJ
             </div>
           </motion.span>
