@@ -4,7 +4,6 @@ import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 
 function Hero() {
-  const [isloading, setIsLoading] = useState(true);
 
   const words = useMemo(
     () => ["W E L C O M E", "I AM", "ADITYA JOHN", " "],
@@ -31,8 +30,6 @@ function Hero() {
         setCount((prev) => prev + 1);
       }, 3400);
       return () => clearInterval(interval);
-    } else {
-      setIsLoading(false);
     }
   }, [count, words.length]);
 
