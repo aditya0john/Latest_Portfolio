@@ -8,7 +8,7 @@ import Marquee from "./Marquee";
 
 export default function TechStack() {
   return (
-    <div className="h-full w-full flex items-center justify-center overflow-hiddenhover">
+    <div className="h-full w-full flex items-center justify-center overflow-hidden">
       <span className="flex">
         <motion.div
           initial={{
@@ -22,8 +22,10 @@ export default function TechStack() {
             x: 0,
           }}
           transition={{
-            duration: 0.5,
-            ease: [0.4, 0.0, 0.2, 1],
+            delay: 0.4,
+            duration: 1,
+            // ease: [0.4, 0.0, 0.2, 1],
+            ease:"easeInOut"
           }}
           className="text-black max-w-sm translate-x-6 hidden lg:block"
         >
@@ -63,8 +65,11 @@ export default function TechStack() {
             x: 0,
           }}
           transition={{
-            duration: 0.5,
-            ease: [0.4, 0.0, 0.2, 1],
+            delay: 0.4,
+            duration: 1,
+            // ease: [0.4, 0.0, 0.2, 1],
+            ease:"easeInOut"
+
           }}
           className="text-black max-w-sm translate-x-6 hidden lg:block"
         >

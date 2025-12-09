@@ -135,7 +135,7 @@ export default function Home() {
                   {projects.map((item, i) => (
                     <div key={i}>
                       {i == itemData && (
-                        <div className="flex flex-col gap-4 items-center justify-center">
+                        <div className="flex flex-col gap-4 items-center justify-center mr-20">
                           <span className="max-w-lg text-center text-3xl font-semibold italic">
                             {item.des}
                           </span>
@@ -226,7 +226,7 @@ export default function Home() {
                   delay={8000}
                   pauseOnHover={true}
                   easing="elastic"
-                  onFrontChange={(data) => setItemData(data)}
+                  onFrontChange={(e) => setItemData(e)}
                 >
                   {projects.map((item, index) => (
                     <Card key={index}>

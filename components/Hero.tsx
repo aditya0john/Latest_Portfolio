@@ -6,7 +6,7 @@ import Image from "next/image";
 function Hero() {
 
   const words = useMemo(
-    () => ["W E L C O M E", "I AM", "ADITYA JOHN", " "],
+    () => ["W E L C O M E", "I AM", "Aditya John", " "],
     []
   );
   const FrontEnd = useMemo(
@@ -106,12 +106,11 @@ function Hero() {
             times: [0, 0.15, 0.8, 0.84, 0.85, 0.95, 0.98, 1], // Keyframe percentages
             ease: "easeInOut",
           }}
-          className={`noise lg:overflow-hidden relative mx-10 overflow-hidden`}
+          className={`noise lg:overflow-hidden relat mx-10 overflow-hidden relative`}
         >
           {count > 3 && <motion.div
             animate={{ y: [1000, 0] }}
-            transition={{ duration: 1, delay: 0.3, ease: "easeInOut" }}
-            className="w-full h-full flex flex-col justify-center z-50 absolute"
+            transition={{ duration: 1, delay: 0.3, ease: "easeInOut" }}className="w-full h-full flex flex-col justify-center z-50 absolute"
           >
             <Image
               src="/ME.png"
@@ -210,7 +209,7 @@ function Hero() {
         )}
 
         <span className="absolute SecText">
-          <p className="text-4xl lg:text-[8rem] font-serif capitalize">
+          <p className="text-4xl lg:text-[8rem] font-serif uppercase">
             {words[count]}
           </p>
         </span>
@@ -226,7 +225,7 @@ function Hero() {
               duration: 0.5,
               ease: [0.4, 0.0, 0.2, 1],
             }}
-            className="logo-container gap-6 text-[2rem] lg:text-[8rem] font-serif capitalize SecText"
+            className=" logo-container gap-6 text-[2rem] lg:text-[8rem] font-serif capitalize SecText"
           >
             AJ
           </motion.div>
@@ -245,7 +244,7 @@ function Hero() {
             }}
             className="z-50 absolute flex -top-[12px] left-2 bg-[#f28256] rounded-lg p-1"
           >
-            <div className="text-[2rem] lg:text-[3rem] font-serif capitalize">
+            <div className=" text-[2rem] lg:text-[3rem] font-serif capitalize">
               AJ
             </div>
           </motion.span>

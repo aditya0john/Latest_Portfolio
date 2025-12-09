@@ -24,6 +24,10 @@
   background-color: rgb(255, 0, 0);
 }
 
+.HindiFont {
+  font-family: var(--font-inter), sans-serif;
+}
+
 .PrmText {
   color: #fcf5e5 !important;
 }
