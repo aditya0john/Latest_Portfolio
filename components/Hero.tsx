@@ -1,255 +1,149 @@
 "use client";
 import { motion } from "framer-motion";
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
+import TextType from "./ReactBits/TextType";
+import DownloadButtons from "./DownloadButtons";
 
 function Hero() {
-
   const words = useMemo(
-    () => ["W E L C O M E", "I AM", "Aditya John", " "],
-    []
-  );
-  const FrontEnd = useMemo(
-    () => ["Next.js", "React.js", "Tailwind CSS", "TypeScript", "React native"],
-    []
-  );
-  const BackEnd = useMemo(
-    () => ["Node.js", "Express.js", "MongoDB", "PostgreSQL", "Supabase"],
-    []
-  );
-  const BackgroundWords = useMemo(
-    () => ["ADITYA", "JOHN", "ADITYA", "JOHN", "ADITYA", "JOHN"],
+    () => ["W E L C O M E", "I AM", "Aditya John", ""],
     []
   );
 
+  const [loading, setLoading] = useState(true);
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     if (count < words.length) {
       const interval = setInterval(() => {
         setCount((prev) => prev + 1);
-      }, 3400);
+      }, 2400);
       return () => clearInterval(interval);
+    } else {
+      setLoading(false);
     }
   }, [count, words.length]);
 
   return (
-    <div className="relative ">
-      <div className="flex items-center justify-center h-[38rem] bg-gradient-to-br from-[#FFF9F3] to-[#FFEFEB] bottomCurve">
-        {count >= 4 && (
-          <motion.span
-            initial={{
-              opacity: 0,
-              y: 20,
-              x: -1000,
-            }}
-            animate={{
-              opacity: 1,
-              y: [20, -5, 0],
-              x: 0,
-            }}
-            transition={{
-              duration: 0.5,
-              ease: [0.4, 0.0, 0.2, 1],
-            }}
-            className="text-black max-w-sm translate-x-6 hidden lg:flex flex-col gap-6 p-4 rounded-2xl"
-          >
-            {Array(5)
-              .fill(null)
-              .map((_, i) => (
-                <p
-                  key={i}
-                  className="text-5xl/tight text-end font-extrabold noiseReverse bg-clip-text text-transparent"
-                >
-                  {FrontEnd[i]}
-                </p>
-              ))}
-          </motion.span>
-        )}
-        <motion.div
-          animate={{
-            height: [
-              "440px",
-              "440px",
-              "440px",
-              "440px",
-              "440px",
-              "620px",
-              "590px",
-              "600px",
-            ],
-            width: [
-              "440px",
-              "440px",
-              "440px",
-              "440px",
-              "440px",
-              "620px",
-              "590px",
-              "600px",
-            ],
-            borderRadius: [
-              "50%",
-              "50%",
-              "50%",
-              "50%",
-              "50%",
-              "0%",
-              "20%",
-              "20%",
-            ],
-            x: [-300, 0, 0, 0, 0, 0, 0],
-            y: [-100, 0, 0, 0, 0, 0, 0],
-          }}
-          transition={{
-            duration: 13,
-            times: [0, 0.15, 0.8, 0.84, 0.85, 0.95, 0.98, 1], // Keyframe percentages
-            ease: "easeInOut",
-          }}
-          className={`noise lg:overflow-hidden relat mx-10 overflow-hidden relative`}
-        >
-          {count > 3 && <motion.div
-            animate={{ y: [1000, 0] }}
-            transition={{ duration: 1, delay: 0.3, ease: "easeInOut" }}className="w-full h-full flex flex-col justify-center z-50 absolute"
-          >
-            <Image
-              src="/ME.png"
-              alt="My image"
-              width={80}
-              height={80}
-              priority // ✅ Loads it earlier without layout shift
-              className={`bottom-0 h-[400px] lg:h-[600px] w-[400px] lg:w-[600px] object-cover lg:hover:scale-[1.1] lg:hover:-rotate-2`}
-            />
-          </motion.div>}
+    <div className={`h-screen flex ${loading ? "items-center" : "items-start"} justify-center`}>
+      <motion.div
+        animate={{
+          height: ["50vh", "50vh", "50vh", "38rem"],
+          width: ["30vw", "30vw", "30vw", "100vw"],
+          borderRadius: ["50%", "50%", "50%", "0 0 50% 50% / 0 0 10% 10%"],
+          x: [-300, 0, 0, 0],
+          y: [-100, 0, 0, loading ? -130 : 0],
+        }}
+        transition={{
+          duration: 9,
+          times: [0, 0.25, 0.85, 1],
+          ease: "easeInOut",
+        }}
+        className={`bg-white backdrop-invert overflow-hidden flex flex-col items-center justify-center`}
+      >
+        {count > 3 && <div className="flex flex-col  items-center justify-center ">
+          <span className="text-4xl md:text-6xl lg:text-8xl font-serif tracking-tighter">
+            ADITYA JOHN
+          </span>
 
-          {count >= 4 && (
-            <div className="absolute flex flex-col justify-between inset-0 z-0">
-              {Array.from({ length: 6 }).map((_, rowIndex) => {
-                const isEven = rowIndex % 2 === 0;
-                return (
-                  <motion.div
-                    key={rowIndex}
-                    className={`flex whitespace-nowrap rotate-[-45deg]`}
-                    style={{
-                      top: `${rowIndex * 18}vh`, // Spread 6 rows evenly
-                    }}
-                    animate={{
-                      x: isEven ? ["0%", "-50%"] : ["-50%", "0%"],
-                    }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: isEven ? 12 : 6,
-                      ease: "linear",
-                    }}
-                  >
-                    {Array(2)
-                      .fill(null)
-                      .flatMap((_, loopIndex) =>
-                        BackgroundWords.map((word, i) => (
-                          <span
-                            key={`${i}-${loopIndex}`}
-                            className={`text-5xl ${isEven ? "lg:text-[30px]" : "lg:text-[80px]"} noise bg-clip-text text-transparent font-extrabold uppercase flex items-center justify-center`}
-                          >
-                            <span>{word}</span>
-                            <span>
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                strokeWidth="4"
-                                stroke="currentColor"
-                                className="size-10"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  d="M5 12h14"
-                                />
-                              </svg>
-                            </span>
-                          </span>
-                        ))
-                      )}
-                  </motion.div>
-                );
-              })}
+          <DownloadButtons />
+        </div>}
+
+        {count > 3 &&
+          <div className="flex flex-col md:flex-row items-center justify-center gap-10 h-full lg:-translate-x-10">
+            <motion.span
+              initial={{
+                opacity: 0,
+                y: 20,
+                x: -1000,
+              }}
+              animate={{
+                opacity: 1,
+                y: [20, -5, 0],
+                x: 0,
+              }}
+              transition={{
+                duration: 0.5,
+                ease: [0.4, 0.0, 0.2, 1],
+              }}
+              className="text-black max-w-sm translate-x-6"
+            >
+              <TextType
+                text="Results-driven Full-Stack Developer with expertise in React, Next.js, Node.js, and TypeScript. Passionate about building scalable web applications with optimized performance and seamless UI/UX. Strong back ground in MongoDB, PostgreSQL, Tailwind CSS, and CI/CD pipelines. Having experience solving, debugging, and deploying native cloud applications. Looking for a challenging role to contribute innovative solutions and drive impact in modern web development."
+                textColors={["black"]}
+                className="font-normal text-justify overflow-hidden tracking-tighter"
+                typingSpeed={5}
+              />
+            </motion.span>
+
+            <div className="flex flex-row items-center justify-center lg:gap-10">
+              <motion.div
+                animate={{ y: [1000, 0] }}
+                transition={{ duration: 0.5, ease: "easeInOut" }} className="z-50"
+              >
+                <Image
+                  src="/images/ME2.jpg"
+                  alt="My image"
+                  width={300}
+                  height={300}
+                  priority // ✅ Loads it earlier without layout shift
+                  className="h-[200px] w-[200px] lg:h-[400px] lg:w-[300px] object-contain rounded-3xl grayscale"
+                />
+              </motion.div>
+
+              <motion.span
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                  x: 1000,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: [20, -5, 0],
+                  x: 0,
+                }}
+                transition={{
+                  duration: 0.5,
+                  ease: [0.4, 0.0, 0.2, 1],
+                }}
+                className="text-black max-w-sm translate-x-6 flex flex-col gap-6"
+              >
+                <div className="flex flex-col gap-2 text-xs lg:text-xl">
+                  <span className="font-bold uppercase">
+                    GMAIL
+                  </span>
+                  <span className=" uppercase">
+                    [ johnaditya46@gmail.com ]
+                  </span>
+                  <div className="w-full border border-black" />
+                  <span className=" font-bold uppercase">
+                    PHONE
+                  </span>
+                  <span className="uppercase">
+                    [+91-6396050728]
+                  </span>
+                  <div className="w-full border border-black" />
+                  <span className="font-bold uppercase">
+                    ADDRESS
+                  </span>
+                  <span className="">
+                    [ Dehradun, Uttarakhand, INDIA ]
+                  </span>
+                  <div className="w-full border border-black" />
+                </div>
+              </motion.span>
             </div>
-          )}
-        </motion.div>
+          </div>
+        }
+      </motion.div>
 
-        {count >= 4 && (
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 20,
-              x: 1000,
-            }}
-            animate={{
-              opacity: 1,
-              y: [20, -5, 0],
-              x: 0,
-            }}
-            transition={{
-              duration: 0.5,
-              ease: [0.4, 0.0, 0.2, 1],
-            }}
-            className="text-black max-w-sm translate-x-6 hidden lg:flex flex-col gap-6"
-          >
-            {Array(5)
-              .fill(null)
-              .map((_, i) => (
-                <p
-                  key={i}
-                  className="text-5xl/tight font-extrabold noise bg-clip-text text-transparent"
-                >
-                  {BackEnd[i]}
-                </p>
-              ))}
-          </motion.div>
-        )}
+      <span className="absolute">
+        <p className="text-white mix-blend-difference text-4xl lg:text-[8rem] font-serif uppercase z-50">
+          {words[count]}
+        </p>
+      </span>
 
-        <span className="absolute SecText">
-          <p className="text-4xl lg:text-[8rem] font-serif uppercase">
-            {words[count]}
-          </p>
-        </span>
-
-        {count >= 3 && (
-          <motion.div
-            animate={{
-              opacity: [0, 1],
-              y: [0, -5, 0],
-              x: 0,
-            }}
-            transition={{
-              duration: 0.5,
-              ease: [0.4, 0.0, 0.2, 1],
-            }}
-            className=" logo-container gap-6 text-[2rem] lg:text-[8rem] font-serif capitalize SecText"
-          >
-            AJ
-          </motion.div>
-        )}
-
-        {count >= 4 && (
-          <motion.span
-            animate={{
-              height: ["0vh", "10vh"],
-              color: ["#000", "#fff"],
-              opacity: [0, 1],
-              transition: {
-                duration: 1,
-                ease: "easeInOut",
-              },
-            }}
-            className="z-50 absolute flex -top-[12px] left-2 bg-[#f28256] rounded-lg p-1"
-          >
-            <div className=" text-[2rem] lg:text-[3rem] font-serif capitalize">
-              AJ
-            </div>
-          </motion.span>
-        )}
-      </div>
     </div>
   );
 }

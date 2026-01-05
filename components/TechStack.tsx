@@ -25,7 +25,7 @@ export default function TechStack() {
             delay: 0.4,
             duration: 1,
             // ease: [0.4, 0.0, 0.2, 1],
-            ease:"easeInOut"
+            ease: "easeInOut"
           }}
           className="text-black max-w-sm translate-x-6 hidden lg:block"
         >
@@ -34,7 +34,7 @@ export default function TechStack() {
             .map((_, i) => (
               <p
                 key={i}
-                className={`text-5xl/tight ${i % 2 == 0 ? "rotate-2" : "-rotate-2"} font-extrabold noise bg-clip-text text-transparent`}
+                className={`text-5xl/tight ${i % 2 == 0 ? "rotate-2" : "-rotate-2"} font-extrabold text-black`}
               >
                 TECHSTACK
               </p>
@@ -68,7 +68,7 @@ export default function TechStack() {
             delay: 0.4,
             duration: 1,
             // ease: [0.4, 0.0, 0.2, 1],
-            ease:"easeInOut"
+            ease: "easeInOut"
 
           }}
           className="text-black max-w-sm translate-x-6 hidden lg:block"
@@ -78,7 +78,7 @@ export default function TechStack() {
             .map((_, i) => (
               <p
                 key={i}
-                className={`text-5xl/tight ${i % 2 == 0 ? "-rotate-2" : "rotate-2"} font-extrabold noise bg-clip-text text-transparent`}
+                className={`text-5xl/tight ${i % 2 == 0 ? "-rotate-2" : "rotate-2"} font-extrabold text-black`}
               >
                 TECHSTACK
               </p>
@@ -133,7 +133,7 @@ const SkeletonOne = () => {
     >
       <div className="bg-white/[0.4] h-24 w-full relative flex items-center justify-center rounded-lg hover:cursor-">
         {!isHovered ? (
-          <div className="text-3xl lg:text-5xl PrmText font-bold font-mono">
+          <div className="text-3xl lg:text-5xl text-white font-bold font-mono">
             {" "}
             FrontEnd{" "}
           </div>
@@ -143,7 +143,7 @@ const SkeletonOne = () => {
       </div>
       <div className="bg-white/[0.4] h-24 w-full relative flex items-center justify-center rounded-lg">
         {!isHovered ? (
-          <div className="text-3xl lg:text-5xl PrmText font-bold font-mono">
+          <div className="text-3xl lg:text-5xl text-white font-bold font-mono">
             {" "}
             BackEnd
           </div>
@@ -153,7 +153,7 @@ const SkeletonOne = () => {
       </div>
       <div className="bg-white/[0.4] h-24 w-full relative flex items-center justify-center rounded-lg">
         {!isHovered ? (
-          <div className="text-3xl lg:text-5xl PrmText font-bold font-mono">
+          <div className="text-3xl lg:text-5xl text-white font-bold font-mono">
             CI/CD &amp; DevOps
           </div>
         ) : (

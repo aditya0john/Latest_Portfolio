@@ -23,7 +23,7 @@ function Marquee({
         {repeatPhoto.map(({ name, id, src }, index) => (
           <span
             key={`${id}-${index}`}
-            className="text-2xl lg:text-4xl text-black font-extrabold uppercase font-mono flex items-center justify-center mx-8"
+            className="text-2xl lg:text-4xl text-white font-extrabold uppercase font-mono flex items-center justify-center mx-8"
           >
             <span className="flex items-center justify-start gap-2">
               <Image

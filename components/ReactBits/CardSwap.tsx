@@ -68,8 +68,8 @@ const placeNow = (el: HTMLElement, slot: Slot, skew: number) =>
   });
 
 const CardSwap: React.FC<CardSwapProps> = ({
-  width = 600,
-  height = 400,
+  width = "50vw",
+  height = "70vh",
   cardDistance = 60,
   verticalDistance = 70,
   delay = 5000,
@@ -100,7 +100,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
       };
 
   const childArr = useMemo(() => Children.toArray(children) as ReactElement<CardProps>[], [children]);
-  const refs = useMemo<CardRef[]>(() => childArr.map(() => React.createRef<HTMLDivElement>()), [childArr]);
+  const refs = useMemo<CardRef[]>(() => childArr.map(() => React.createRef<HTMLDivElement>()), [childArr.length]);
 
   const order = useRef<number[]>(Array.from({ length: childArr.length }, (_, i) => i));
 
@@ -196,9 +196,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
       };
     }
     return () => clearInterval(intervalRef.current);
-  }, [
-    cardDistance, verticalDistance, delay, pauseOnHover, skewAmount, easing
-  ]);
+  }, [cardDistance, verticalDistance, delay, pauseOnHover, skewAmount, easing]);
 
   const rendered = childArr.map((child, i) =>
     isValidElement<CardProps>(child)
@@ -217,7 +215,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
   return (
     <div
       ref={container}
-      className="absolute bottom-0 right-0 perspective-1000"
+      className="absolute -bottom-40 right-0 perspective-1000"
       style={{ width, height }}
     >
       {rendered}

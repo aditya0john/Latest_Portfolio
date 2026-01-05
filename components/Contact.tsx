@@ -130,7 +130,7 @@ function Contact() {
       />
 
       <div className="flex flex-col w-[60vw] gap-3">
-        <div className="noise rounded-lg w-full ">
+        <div className="bg-white rounded-lg w-full ">
           <ul className="text-2xl font-bold uppercase flex justify-center p-2">
             contact
           </ul>
@@ -145,7 +145,7 @@ function Contact() {
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
-                    stroke="black"
+                    stroke="white"
                     className="w-6 h-6"
                   >
                     <path
@@ -168,7 +168,7 @@ function Contact() {
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
-                    stroke="black"
+                    stroke="white"
                     className="w-6 h-6"
                   >
                     <path
@@ -185,7 +185,7 @@ function Contact() {
           </ul>
         </div>
 
-        <div className="noise p-2 rounded-lg w-full ">
+        <div className="bg-white p-2 rounded-lg w-full ">
           <ul className="text-2xl font-bold uppercase flex justify-center p-2">
             follow
           </ul>
@@ -198,7 +198,7 @@ function Contact() {
                   className="w-6 h-6 text-gray-800 dark:text-white"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
+                  fill="white"
                   viewBox="0 0 8 19"
                   stroke="black"
                 >
@@ -220,7 +220,7 @@ function Contact() {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 20 20"
-                  stroke="black"
+                  stroke="white"
                 >
                   <path
                     fill="currentColor"
@@ -238,7 +238,7 @@ function Contact() {
                   className="w-8 h-8"
                   viewBox="0 0 24 24"
                 >
-                  <g fill="none" stroke="black" strokeWidth="1.5">
+                  <g fill="none" stroke="white" strokeWidth="1.5">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"

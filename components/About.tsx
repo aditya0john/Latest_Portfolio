@@ -134,7 +134,7 @@ function About() {
             text="Results-driven Full-Stack Developer with expertise in React, Next.js, Node.js, and TypeScript. Passionate about building scalable web applications with optimized performance and seamless UI/UX. Strong back ground in MongoDB, PostgreSQL, Tailwind CSS, and CI/CD pipelines. Having experience solving, debugging, and deploying native cloud applications. Looking for a challenging role to contribute innovative solutions and drive impact in modern web development."
             textColors={["white"]}
             className="text-white font-sans font-normal italic text-base/6 lg:text-[35px]/snug text-justify tracking-tighter overflow-hidden"
-            typingSpeed={20}
+            typingSpeed={5}
           />
         </div>
       </div>
