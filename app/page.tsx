@@ -96,7 +96,7 @@ export default function Home() {
           sectionsRef.current[2] = el; // ✅ Assign the element
         }}
         data-section="techstack"
-        className="h-screen bg-gradient-to-br from-[#FFF9F3] to-[#FFEFEB] snap-start flex items-center justify-center"
+        className="h-screen SecColor snap-start flex items-center justify-center"
       >
         {activeSection === "techstack" && <TechStack />}
       </section>

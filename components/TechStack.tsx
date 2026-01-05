@@ -27,14 +27,14 @@ export default function TechStack() {
             // ease: [0.4, 0.0, 0.2, 1],
             ease: "easeInOut"
           }}
-          className="text-black max-w-sm translate-x-6 hidden lg:block"
+          className="text-white max-w-sm translate-x-6 hidden lg:block"
         >
           {Array(10)
             .fill(null)
             .map((_, i) => (
               <p
                 key={i}
-                className={`text-5xl/tight ${i % 2 == 0 ? "rotate-2" : "-rotate-2"} font-extrabold text-black`}
+                className={`text-5xl/tight ${i % 2 == 0 ? "rotate-2" : "-rotate-2"} font-extrabold text-white`}
               >
                 TECHSTACK
               </p>
@@ -78,7 +78,7 @@ export default function TechStack() {
             .map((_, i) => (
               <p
                 key={i}
-                className={`text-5xl/tight ${i % 2 == 0 ? "-rotate-2" : "rotate-2"} font-extrabold text-black`}
+                className={`text-5xl/tight ${i % 2 == 0 ? "-rotate-2" : "rotate-2"} font-extrabold text-white`}
               >
                 TECHSTACK
               </p>
@@ -131,7 +131,7 @@ const SkeletonOne = () => {
       onMouseLeave={() => setIsHovered(false)}
       className="flex flex-col items-center justify-center gap-2 h-full w-full overflow-hidden"
     >
-      <div className="bg-white/[0.4] h-24 w-full relative flex items-center justify-center rounded-lg hover:cursor-">
+      <div className="bg-black h-24 w-full relative flex items-center justify-center rounded-lg hover:cursor-">
         {!isHovered ? (
           <div className="text-3xl lg:text-5xl text-white font-bold font-mono">
             {" "}
@@ -141,7 +141,7 @@ const SkeletonOne = () => {
           <Marquee Photo={FrontEnd} />
         )}
       </div>
-      <div className="bg-white/[0.4] h-24 w-full relative flex items-center justify-center rounded-lg">
+      <div className="bg-black h-24 w-full relative flex items-center justify-center rounded-lg">
         {!isHovered ? (
           <div className="text-3xl lg:text-5xl text-white font-bold font-mono">
             {" "}
@@ -151,7 +151,7 @@ const SkeletonOne = () => {
           <Marquee Photo={BackEnd} />
         )}
       </div>
-      <div className="bg-white/[0.4] h-24 w-full relative flex items-center justify-center rounded-lg">
+      <div className="bg-black h-24 w-full relative flex items-center justify-center rounded-lg">
         {!isHovered ? (
           <div className="text-3xl lg:text-5xl text-white font-bold font-mono">
             CI/CD &amp; DevOps
@@ -194,23 +194,23 @@ const SkeletonTwo = () => {
     >
       <motion.div
         variants={first}
-        className="h-full w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center"
+        className="h-full w-1/3 rounded-2xl bg-black p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center"
       >
         <Image
           src="/typescript.png"
           alt="avatar"
           height="100"
           width="100"
-          className="h-16 w-16 object-cover"
+          className="h-16 w-16 object-cover invert"
         />
-        <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
+        <p className="sm:text-sm text-xs text-center font-semibold text-white/80 mt-4">
           Just code in Tyepscript
         </p>
         <p className="border border-red-500 bg-red-100 dark:bg-red-900/20 text-red-600 text-xs rounded-full px-2 py-0.5 mt-4">
           Delusional
         </p>
       </motion.div>
-      <motion.div className="h-full relative z-20 w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center">
+      <motion.div className="h-full relative z-20 w-1/3 rounded-2xl bg-black p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center">
         <Image
           src="/tailwind.png"
           alt="avatar"
@@ -218,7 +218,7 @@ const SkeletonTwo = () => {
           width="100"
           className="h-24 w-24 object-contain"
         />
-        <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
+        <p className="sm:text-sm text-xs text-center font-semibold text-white/80 mt-4">
           Tailwind CSS is cool, you know
         </p>
         <p className="border border-green-500 bg-green-100 dark:bg-green-900/20 text-green-600 text-xs rounded-full px-2 py-0.5 mt-4">
@@ -227,7 +227,7 @@ const SkeletonTwo = () => {
       </motion.div>
       <motion.div
         variants={second}
-        className="h-full w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center"
+        className="h-full w-1/3 rounded-2xl bg-black p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center"
       >
         <span className="flex">
           <Image
@@ -235,10 +235,10 @@ const SkeletonTwo = () => {
             alt="avatar"
             height="100"
             width="100"
-            className="rounded-full h-16 w-16 object-cover"
+            className="rounded-full h-16 w-16 object-cover invert"
           />
         </span>
-        <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
+        <p className="sm:text-sm text-xs text-center font-semibold text-white/80 mt-4">
           I love SQL and PostgreSQL
         </p>
         <p className="border border-orange-500 bg-orange-100 dark:bg-orange-900/20 text-orange-600 text-xs rounded-full px-2 py-0.5 mt-4">
@@ -258,7 +258,7 @@ const items = [
   {
     title: "FAST, RELIABLE, GLOBALLY USED, SECURE TECH",
     description: (
-      <p className="text-sm PrmText">All the TECHNOLOGY you name it I do it.</p>
+      <p className="text-sm text-black/60">All the TECHNOLOGY you name it I do it.</p>
     ),
     header: <SkeletonTwo />,
     className: "col-span-3",
