@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import TextType from "./ReactBits/TextType";
 import DownloadButtons from "./DownloadButtons";
+import MyPic from "../public/images/ME2.png"
 
 function Hero() {
   const words = useMemo(
@@ -83,12 +84,12 @@ function Hero() {
                 transition={{ duration: 0.5, ease: "easeInOut" }} className="z-50"
               >
                 <Image
-                  src="/images/ME2.jpg"
+                  src={MyPic}
                   alt="My image"
                   width={300}
                   height={300}
                   priority // ✅ Loads it earlier without layout shift
-                  className="h-[200px] w-[200px] lg:h-[400px] lg:w-[300px] object-contain rounded-3xl grayscale"
+                  className="h-[200px] w-[200px] lg:h-[400px] lg:w-[300px] object-cover rounded-3xl grayscale"
                 />
               </motion.div>
 

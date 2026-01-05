@@ -1,11 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TextGenerateEffect } from "@/components/aceternity/text-generate";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import Hero from "@/components/Hero";
-import About from "@/components/About";
 import TechStack from "@/components/TechStack";
 import Contact from "@/components/Contact";
 import { projects } from "@/data";
