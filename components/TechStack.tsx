@@ -129,9 +129,9 @@ const SkeletonOne = () => {
       onTouchEnd={() => setIsHovered(false)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="flex flex-col items-center justify-center gap-2 h-full w-full overflow-hidden"
+      className="flex flex-col items-center justify-center gap-2 h-full w-full overflow-hidden hover:cursor-none"
     >
-      <div className="bg-black h-24 w-full relative flex items-center justify-center rounded-lg hover:cursor-">
+      <div className="bg-black h-24 w-full relative flex items-center justify-center rounded-2xl">
         {!isHovered ? (
           <div className="text-3xl lg:text-5xl text-white font-bold font-mono">
             {" "}
@@ -141,7 +141,7 @@ const SkeletonOne = () => {
           <Marquee Photo={FrontEnd} />
         )}
       </div>
-      <div className="bg-black h-24 w-full relative flex items-center justify-center rounded-lg">
+      <div className="bg-black h-24 w-full relative flex items-center justify-center rounded-2xl">
         {!isHovered ? (
           <div className="text-3xl lg:text-5xl text-white font-bold font-mono">
             {" "}
@@ -151,7 +151,7 @@ const SkeletonOne = () => {
           <Marquee Photo={BackEnd} />
         )}
       </div>
-      <div className="bg-black h-24 w-full relative flex items-center justify-center rounded-lg">
+      <div className="bg-black h-24 w-full relative flex items-center justify-center rounded-2xl">
         {!isHovered ? (
           <div className="text-3xl lg:text-5xl text-white font-bold font-mono">
             CI/CD &amp; DevOps

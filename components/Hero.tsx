@@ -5,6 +5,7 @@ import Image from "next/image";
 import TextType from "./ReactBits/TextType";
 import DownloadButtons from "./DownloadButtons";
 import MyPic from "../public/images/ME2.png"
+import Link from "next/link";
 
 function Hero() {
   const words = useMemo(
@@ -14,12 +15,13 @@ function Hero() {
 
   const [loading, setLoading] = useState(true);
   const [count, setCount] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     if (count < words.length) {
       const interval = setInterval(() => {
         setCount((prev) => prev + 1);
-      }, 2400);
+      }, 1600);
       return () => clearInterval(interval);
     } else {
       setLoading(false);
@@ -27,73 +29,84 @@ function Hero() {
   }, [count, words.length]);
 
   return (
-    <div className={`h-screen flex ${loading ? "items-center" : "items-start"} justify-center`}>
-      <motion.div
-        animate={{
-          height: ["50vh", "50vh", "50vh", "38rem"],
-          width: ["30vw", "30vw", "30vw", "100vw"],
-          borderRadius: ["50%", "50%", "50%", "0 0 50% 50% / 0 0 10% 10%"],
-          x: [-300, 0, 0, 0],
-          y: [-100, 0, 0, loading ? -130 : 0],
-        }}
-        transition={{
-          duration: 9,
-          times: [0, 0.25, 0.85, 1],
-          ease: "easeInOut",
-        }}
-        className={`bg-white backdrop-invert overflow-hidden flex flex-col items-center justify-center`}
-      >
-        {count > 3 && <div className="flex flex-col  items-center justify-center ">
-          <span className="text-4xl md:text-6xl lg:text-8xl font-serif tracking-tighter">
+    <div className={`h-screen p-2 md:p-0 flex flex-col items-center justify-center ${loading ? "gap-0" : "gap-4"} `}>
+      {loading &&
+        <motion.div
+          animate={{
+            height: ["50vh", "50vh", "50vh", "0vh"],
+            width: ["30vw", "30vw", "30vw", "0vw"],
+            borderRadius: ["50%", "50%", "50%", "50%"],
+            x: [-300, 0, 0, 0],
+            y: [-100, 0, 0, 0],
+          }}
+          transition={{
+            duration: 6,
+            times: [0, 0.25, 0.95, 1],
+            ease: "easeInOut",
+          }}
+          className={`bg-white backdrop-invert overflow-hidden flex flex-col items-center justify-center`}
+        />}
+
+      {count > 3 &&
+        <div className="flex flex-col items-center justify-center">
+          <span className="text-white font-bold text-4xl md:text-7xl lg:text-9xl font-serif tracking-tight">
             ADITYA JOHN
           </span>
+        </div>
+      }
 
-          <DownloadButtons />
-        </div>}
-
-        {count > 3 &&
-          <div className="flex flex-col md:flex-row items-center justify-center gap-10 h-full lg:-translate-x-10">
-            <motion.span
-              initial={{
-                opacity: 0,
-                y: 20,
-                x: -1000,
-              }}
-              animate={{
-                opacity: 1,
-                y: [20, -5, 0],
-                x: 0,
-              }}
-              transition={{
-                duration: 0.5,
-                ease: [0.4, 0.0, 0.2, 1],
-              }}
-              className="text-black max-w-sm translate-x-6"
-            >
+      {count > 3 &&
+        <div className="md:grid md:grid-cols-2 flex flex-col items-center justify-center gap-4 w-full p-4">
+          <motion.span
+            initial={{
+              opacity: 0,
+              y: 20,
+              x: -1000,
+            }}
+            animate={{
+              opacity: 1,
+              y: [20, -5, 0],
+              x: 0,
+            }}
+            transition={{
+              duration: 0.5,
+              ease: [0.4, 0.0, 0.2, 1],
+            }}
+            className="text-black translate-x-6 bg-gradient-to-b from-white/70 to bg-neutral-900 p-4 rounded-[42] flex items-center h-full"
+          >
+            <span className="bg-black p-4 rounded-[32] h-full w-full flex items-center justify-center">
               <TextType
                 text="Results-driven Full-Stack Developer with expertise in React, Next.js, Node.js, and TypeScript. Passionate about building scalable web applications with optimized performance and seamless UI/UX. Strong back ground in MongoDB, PostgreSQL, Tailwind CSS, and CI/CD pipelines. Having experience solving, debugging, and deploying native cloud applications. Looking for a challenging role to contribute innovative solutions and drive impact in modern web development."
-                textColors={["black"]}
-                className="font-normal text-justify overflow-hidden tracking-tighter"
+                textColors={["white"]}
+                className="font-mono text-center overflow-hidden tracking-tighter text-[9px] md:text-xl lg:text-4xl"
                 typingSpeed={5}
               />
-            </motion.span>
+            </span>
+          </motion.span>
 
-            <div className="flex flex-row items-center justify-center lg:gap-10">
-              <motion.div
-                animate={{ y: [1000, 0] }}
-                transition={{ duration: 0.5, ease: "easeInOut" }} className="z-50"
-              >
-                <Image
-                  src={MyPic}
-                  alt="My image"
-                  width={300}
-                  height={300}
-                  priority // ✅ Loads it earlier without layout shift
-                  className="h-[200px] w-[200px] lg:h-[400px] lg:w-[300px] object-cover rounded-3xl grayscale"
-                />
-              </motion.div>
+          <div className="md:grid md:grid-cols-2 flex flex-col items-center justify-center gap-4">
+            <motion.div
+              animate={{ y: [1000, 0] }}
+              transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }} className="z-50"
+            >
+              <Image
+                src={MyPic}
+                alt="My image"
+                width={400}
+                height={400}
+                priority // ✅ Loads it earlier without layout shift
+                className="h-[300px] w-screen md:h-[400px] md:w-[300px] lg:h-[500px] lg:w-[500px] object-cover rounded-[42] grayscale"
+              />
+            </motion.div>
+
+            <div className="gap-4 md:gap-6 flex flex-col items-center justify-center w-full">
+              <DownloadButtons />
 
               <motion.span
+                onTouchStart={() => setIsHovered(true)}
+                onTouchEnd={() => setIsHovered(false)}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
                 initial={{
                   opacity: 0,
                   y: 20,
@@ -108,43 +121,57 @@ function Hero() {
                   duration: 0.5,
                   ease: [0.4, 0.0, 0.2, 1],
                 }}
-                className="text-black max-w-sm translate-x-6 flex flex-col gap-6"
+                className="flex flex-col gap-4 bg-white p-4 rounded-3xl w-full"
               >
-                <div className="flex flex-col gap-2 text-xs lg:text-xl">
-                  <span className="font-bold uppercase">
-                    GMAIL
-                  </span>
-                  <span className=" uppercase">
-                    [ johnaditya46@gmail.com ]
-                  </span>
-                  <div className="w-full border border-black" />
-                  <span className=" font-bold uppercase">
-                    PHONE
-                  </span>
-                  <span className="uppercase">
-                    [+91-6396050728]
-                  </span>
-                  <div className="w-full border border-black" />
-                  <span className="font-bold uppercase">
-                    ADDRESS
-                  </span>
-                  <span className="">
-                    [ Dehradun, Uttarakhand, INDIA ]
-                  </span>
-                  <div className="w-full border border-black" />
+                <div className="bg-black h-12 md:h-24 w-full relative flex items-center justify-center rounded-2xl p-2">
+                  {!isHovered ? (
+                    <div className="text-xl lg:text-5xl text-white font-bold font-mono uppercase">
+                      Email
+                    </div>
+                  ) : (
+                    <span
+                      onClick={() => navigator.clipboard.writeText("johnaditya46@gmail.com")}
+                      className="text-lg lg:text-2xl text-white font-bold font-mono uppercase hover:cursor-pointer">
+                      johnaditya46@gmail.com
+                    </span>
+                  )}
                 </div>
+                <div className="bg-black h-12 md:h-24 w-full relative flex items-center justify-center rounded-2xl p-2">
+                  {!isHovered ? (
+                    <div className="text-xl lg:text-5xl text-white font-bold font-mono uppercase">
+                      Phone No.
+                    </div>
+                  ) : (
+                    <span
+                      onClick={() => navigator.clipboard.writeText("6396050728")}
+                      className="text-xl lg:text-2xl text-white font-bold font-mono hover:cursor-pointer">
+                      +91 - 6396050728
+                    </span>
+                  )}
+                </div>
+                <div className="bg-black h-12 md:h-24 w-full relative flex items-center justify-center rounded-2xl p-2">
+                  {!isHovered ? (
+                    <div className="text-xl lg:text-5xl text-white font-bold font-mono uppercase">
+                      Address
+                    </div>
+                  ) : (
+                    <span className="text-xl lg:text-xl text-white font-bold font-mono">
+                      Dehradun, Uttarakhand, INDIA
+                    </span>
+                  )}
+                </div>
+
               </motion.span>
             </div>
           </div>
-        }
-      </motion.div>
+        </div>
+      }
 
       <span className="absolute">
         <p className="text-white mix-blend-difference text-4xl lg:text-[8rem] font-serif uppercase z-50">
           {words[count]}
         </p>
       </span>
-
     </div>
   );
 }

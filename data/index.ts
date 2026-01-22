@@ -56,8 +56,8 @@ export const projects = [
     des: "Play as FLAPPY on an adventure against obstacles.",
     img: "/p2.jpg",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
-    github: "/",
-    link: "https://github.com/adrianhajdin/zoom-clone",
+    github: "https://github.com/aditya0john/Flappy-Bird",
+    link: "",
   },
   {
     id: 4,

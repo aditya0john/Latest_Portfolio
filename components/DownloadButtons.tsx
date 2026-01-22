@@ -11,19 +11,19 @@ function DownloadButtons() {
     };
 
     return (
-        <span className="md:absolute md:top-4 md:right-4 flex md:flex-col gap-4">
+        <span className="bg-white flex px-2 py-1 rounded-[32] h-24 gap-4 md:gap-0 md:w-full items-center justify-around md:justify-between">
             <button
                 onTouchStart={download}
                 onClick={download}
-                className="border-2 border-black rounded-lg p-2 font-bold"
+                className="border-2 border-black rounded-full p-2 font-bold bg-black text-white hover:bg-white hover:text-black transition duration-200"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
-                    stroke="black"
-                    className="size-7"
+                    stroke="currentColor"
+                    className="size-10"
                 >
                     <path
                         strokeLinecap="round"
@@ -32,18 +32,19 @@ function DownloadButtons() {
                     />
                 </svg>
             </button>
+            <span className='font-bold text-md hidden lg:flex'>resume</span>
 
             <Link
                 target="_blank"
                 href={"https://github.com/aditya0john"}
-                className="border-2 border-black rounded-lg text-xs p-2 font-bold"
+                className="border-2 border-black rounded-full text-xs p-2 font-bold bg-black text-white hover:bg-white hover:text-black transition duration-200"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     x="0px"
                     y="0px"
-                    width="30"
-                    height="30"
+                    width="40"
+                    height="40"
                     viewBox="0 0 48 48"
                 >
                     <linearGradient
@@ -75,18 +76,20 @@ function DownloadButtons() {
                     ></path>
                 </svg>
             </Link>
+            <span className='font-bold text-md hidden lg:flex'>GitHub</span>
+
 
             <Link
                 href="mailto:johnaditya46@gmail.com?body=My custom mail body"
-                className="border-2 border-black rounded-lg p-2 font-bold"
+                className="border-2 border-black rounded-full p-2 font-bold bg-black text-white hover:bg-white hover:text-black transition duration-200"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
-                    stroke="black"
-                    className="size-7"
+                    stroke="currentColor"
+                    className="size-12"
                 >
                     <path
                         strokeLinecap="round"
@@ -95,6 +98,8 @@ function DownloadButtons() {
                     />
                 </svg>
             </Link>
+            <span className='font-bold text-md hidden lg:flex'>mail</span>
+
         </span>
 
     )
