@@ -3,7 +3,7 @@ import Link from 'next/link'
 function DownloadButtons() {
     const download = () => {
         const link = document.createElement("a");
-        link.href = "/RESUME.pdf"; // Path to your resume file
+        link.href = "/RESUME ATS_FRIENDLY.pdf"; // Path to your resume file
         link.download = "Aditya_John_Resume.pdf"; // Name of the downloaded file
         document.body.appendChild(link);
         link.click();
@@ -11,7 +11,7 @@ function DownloadButtons() {
     };
 
     return (
-        <span className="bg-white flex px-2 py-1 rounded-[32] h-24 gap-4 md:gap-0 md:w-full items-center justify-around md:justify-between">
+        <span className="flex items-center justify-center gap-6">
             <button
                 onTouchStart={download}
                 onClick={download}
@@ -32,7 +32,6 @@ function DownloadButtons() {
                     />
                 </svg>
             </button>
-            <span className='font-bold text-md hidden lg:flex'>resume</span>
 
             <Link
                 target="_blank"
@@ -76,30 +75,6 @@ function DownloadButtons() {
                     ></path>
                 </svg>
             </Link>
-            <span className='font-bold text-md hidden lg:flex'>GitHub</span>
-
-
-            <Link
-                href="mailto:johnaditya46@gmail.com?body=My custom mail body"
-                className="border-2 border-black rounded-full p-2 font-bold bg-black text-white hover:bg-white hover:text-black transition duration-200"
-            >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    className="size-12"
-                >
-                    <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M21.75 9v.906a2.25 2.25 0 0 1-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 0 0 1.183 1.981l6.478 3.488m8.839 2.51-4.66-2.51m0 0-1.023-.55a2.25 2.25 0 0 0-2.134 0l-1.022.55m0 0-4.661 2.51m16.5 1.615a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V8.844a2.25 2.25 0 0 1 1.183-1.981l7.5-4.039a2.25 2.25 0 0 1 2.134 0l7.5 4.039a2.25 2.25 0 0 1 1.183 1.98V19.5Z"
-                    />
-                </svg>
-            </Link>
-            <span className='font-bold text-md hidden lg:flex'>mail</span>
-
         </span>
 
     )
