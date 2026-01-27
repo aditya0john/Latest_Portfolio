@@ -41,14 +41,14 @@ function Projects() {
 
   return (
     <div className="h-screen flex flex-col justify-center md:grid md:grid-cols-[40%_60%]">
-      <div className="p-2 flex flex-col gap-6 justify-center -translate-y-20">
-        <span className={`text-xl/tight md:text-3xl/tight font-extrabold text-white uppercase`}>
+      <div className="p-2 flex flex-col gap-4 justify-center -translate-y-20">
+        <span className={`text-3xl/tight md:text-7xl/tight font-extrabold text-white uppercase`}>
           Projects
         </span>
         {projects.filter((e) => e.title == activeSection).map((data) => (
-          <div key={data.id} className="flex flex-col gap-6 max-w-xs md:max-w-lg">
-            <span className={`text-3xl/tight md:text-5xl/tight font-extrabold text-white uppercase`}>
-              {data.title}
+          <div key={data.id} className="flex flex-col max-w-xs md:max-w-lg px-4">
+            <span className={`text-lg/tight md:text-2xl/tight font-extrabold text-white uppercase`}>
+              {data.id}.) {data.title}
             </span>
 
             <TextType
@@ -58,8 +58,32 @@ function Projects() {
               typingSpeed={5}
             />
 
-            <span className="p-2 rounded-2xl flex items-center gap-4">
-              <Link target="_blank" href={data.github}>
+
+          </div>
+        ))}
+      </div>
+
+      <div
+        ref={containerRef}
+        className="rounded-l-[42] p-4 flex md:flex-col gap-6 overflow-x-scroll overflow-y-hidden snap-both md:overflow-x-hidden md:overflow-y-scroll snap-mandatory">
+        {projects.map((project) => (
+          <section
+            key={project.id}
+            ref={(el) => {
+              sectionsRef.current[project.id] = el; // ✅ Assign the element
+            }}
+            data-section={project.title}
+            className="md:h-screen min-w-[80%] snap-center flex items-center justify-center relative"
+          >
+            <Image
+              alt="porject image"
+              src={project.img}
+              height={200}
+              width={200}
+              className="h-[300px] w-full md:h-[700px] lg:[600px] md:w-[100%] object-cover rounded-[32]" />
+
+            <span className="px-2 rounded-2xl flex items-center gap-4 absolute bottom-0 left-0 bg-white">
+              <Link target="_blank" href={project.github}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   x="0px"
@@ -98,13 +122,13 @@ function Projects() {
                 </svg>
               </Link>
 
-              <Link href={data.link} target="_blank">
+              <Link href={project.link} target="_blank">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
-                  stroke="white"
+                  stroke="black"
                   className="size-8"
                 >
                   <path
@@ -115,28 +139,6 @@ function Projects() {
                 </svg>
               </Link>
             </span>
-          </div>
-        ))}
-      </div>
-
-      <div
-        ref={containerRef}
-        className="rounded-l-[42] p-4 flex md:flex-col gap-6 overflow-x-scroll overflow-y-hidden snap-both md:overflow-x-hidden md:overflow-y-scroll snap-mandatory">
-        {projects.map((project) => (
-          <section
-            key={project.id}
-            ref={(el) => {
-              sectionsRef.current[project.id] = el; // ✅ Assign the element
-            }}
-            data-section={project.title}
-            className="md:h-screen min-w-[80%] snap-center flex items-center justify-center"
-          >
-            <Image
-              alt="porject image"
-              src={project.img}
-              height={200}
-              width={200}
-              className="h-[300px] w-full md:h-[600px] md:w-[100%] object-contain rounded-[32]" />
           </section>
         ))}
       </div>

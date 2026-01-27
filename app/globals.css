@@ -28,6 +28,13 @@
   font-family: var(--font-inter), sans-serif;
 }
 
+.BgImg{
+  background-image: url("../public/images/MyPhoto.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .PrmText {
   color: #fcf5e5 !important;
 }

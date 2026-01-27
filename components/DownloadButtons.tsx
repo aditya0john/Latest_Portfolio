@@ -11,11 +11,11 @@ function DownloadButtons() {
     };
 
     return (
-        <span className="flex items-center justify-center gap-6">
+        <span className="flex items-center justify-center gap-2 ">
             <button
                 onTouchStart={download}
                 onClick={download}
-                className="border-2 border-black rounded-full p-2 font-bold bg-black text-white hover:bg-white hover:text-black transition duration-200"
+                className="rounded-full p-2 font-bold bg-neutral-300 text-black hover:bg-black hover:text-white transition duration-200"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +23,7 @@ function DownloadButtons() {
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
                     stroke="currentColor"
-                    className="size-10"
+                    className="size-8"
                 >
                     <path
                         strokeLinecap="round"
@@ -36,14 +36,14 @@ function DownloadButtons() {
             <Link
                 target="_blank"
                 href={"https://github.com/aditya0john"}
-                className="border-2 border-black rounded-full text-xs p-2 font-bold bg-black text-white hover:bg-white hover:text-black transition duration-200"
+                className="rounded-full text-xs p-2 font-bold bg-neutral-300 text-black hover:bg-black hover:text-white transition duration-200"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     x="0px"
                     y="0px"
-                    width="40"
-                    height="40"
+                    width="30"
+                    height="30"
                     viewBox="0 0 48 48"
                 >
                     <linearGradient
