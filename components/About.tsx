@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import RotatingText from "./ReactBits/RotatingText";
 import TextType from "./ReactBits/TextType";
+import Image from "next/image";
 
 function About() {
   const words = [
@@ -13,6 +14,12 @@ function About() {
     "creative",
     "techy",
   ];
+
+  const experience = [
+    "With 4+ years of experience in the field, I have a strong background in building scalable web applications and optimizing performance. I am passionate about creating seamless user experiences and delivering high-quality solutions that drive impact in modern web development.",
+    "A proven track record of successfully solving complex problems, debugging issues, and deploying native cloud applications. I am always eager to take on new challenges and contribute innovative solutions to the ever-evolving world of web development.",
+    "2+ years in React Native, 3+ years in Next.js, and 3+ years in Node.js and TypeScript, I have a strong foundation in building scalable web applications and optimizing performance. I am passionate about creating seamless user experiences and delivering high-quality solutions that drive impact in modern web development.",
+  ]
 
   const download = () => {
     const link = document.createElement("a");
@@ -25,8 +32,68 @@ function About() {
 
   return (
     <div className="h-full flex flex-col lg:gap-4 items-center justify-between overflow-hidden">
-      <div className="mt-10">
-        <span className="absolute right-4 top-2 flex lg:flex-col gap-4">
+      <div className="w-screen p-10 flex items-start justify-around">
+        <div className="flex flex-col justify-between h-full">
+          <div className="bg-white/60 rounded-3xl flex flex-col items-start justify-center gap-6 p-4">
+            <span className="PrmText text-5xl font-medium">About Me</span>
+            <TextType
+              text={"Results-driven Full-Stack Developer with expertise in React, React Native, Next.js, Node.js, and TypeScript. Passionate about building scalable web applications with optimized performance and seamless UI/UX. Strong back ground in MongoDB, PostgreSQL, Tailwind CSS, and CI/CD pipelines. Having experience solving, debugging, and deploying native cloud applications. Looking for a challenging role to contribute innovative solutions and drive impact in modern web development."}
+              className="text-wrap max-w-lg text-xs md:text-md lg:text-xl"
+              textColors={["gray"]}
+              typingSpeed={5} />
+          </div>
+
+          <div className="bg-white/60 rounded-3xl flex flex-col items-start justify-center gap-4 p-4">
+            <span className="PrmText text-4xl font-medium">Work Ethic</span>
+            <TextType
+              text={"I'm highly motivated and dedicated individual with a strong work ethic. I thrive in fast-paced environments and am committed to delivering high-quality results. I am proactive, detail-oriented, and always willing to go the extra mile to ensure the success of a project. I value collaboration and believe in fostering a positive and productive work environment."}
+              className="text-wrap max-w-lg text-xs md:text-base"
+              textColors={["gray"]}
+              typingSpeed={5} />
+          </div>
+        </div>
+
+        <div className="bg-white/60 rounded-3xl h-full flex flex-col gap-4 items-center justify-between p-4 lg:max-w-4xl scale-90 lg:scale-100">
+          <Image
+            alt="My Image"
+            src={"/images/ME3.jpg"}
+            height={400}
+            width={500}
+            className="grayscale rounded-2xl w-full"
+          />
+
+          <span className="PrmText text-4xl lg:text-3xl flex flex-row text-center items-center justify-center gap-2 font-extrabold ">
+            <span>Build</span>
+            <RotatingText
+              texts={words}
+              mainClassName="px-2 sm:px-2 md:px-2 bg-neutral-400 text-white rounded-xl text-black overflow-hidden py-0.5 sm:py-1 justify-center rounded-lg uppercase"
+              staggerFrom={"last"}
+              initial={{ y: "100%" }}
+              animate={{ y: -4 }}
+              exit={{ y: "-120%" }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={2000}
+            />
+            <span>Together</span>
+          </span>
+
+          <div className="flex flex-col gap-4">
+            {experience.map((exp, i) => (
+              <span key={i} className="flex items-start justify-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="gray" className="size-3 translate-y-1.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                </svg>
+                <p style={{ color: "gray" }} className="text-justify text-sm lg:text-base max-w-2xl tracking-tight">
+                  {exp}
+                </p>
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <span className="flex lg:flex-col gap-4 mt-6">
           <button
             onTouchStart={download}
             onClick={download}
@@ -37,7 +104,7 @@ function About() {
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth="1.5"
-              stroke="white"
+              stroke="black"
               className="size-7"
             >
               <path
@@ -100,7 +167,7 @@ function About() {
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth="1.5"
-              stroke="white"
+              stroke="black"
               className="size-7"
             >
               <path
@@ -111,35 +178,9 @@ function About() {
             </svg>
           </Link>
         </span>
-
-        <div className="flex flex-col gap-4 items-center justify-center p-8 lg:max-w-7xl scale-90 lg:scale-100">
-          <span className="flex flex-row gap-2 text-4xl lg:text-6xl text-center font-extrabold text-neutral-300 z-50">
-            <span>Build</span>
-            <RotatingText
-              texts={words}
-              mainClassName="px-2 sm:px-2 md:px-3 bg-orange-100/[0.2] p-2 text-orange-500 rounded-xl text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
-              staggerFrom={"last"}
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "-120%" }}
-              staggerDuration={0.025}
-              splitLevelClassName="overflow-hidden"
-              transition={{ type: "spring", damping: 30, stiffness: 400 }}
-              rotationInterval={2000}
-            />
-            <span>Together</span>
-          </span>
-
-          <TextType
-            text="Results-driven Full-Stack Developer with expertise in React, Next.js, Node.js, and TypeScript. Passionate about building scalable web applications with optimized performance and seamless UI/UX. Strong back ground in MongoDB, PostgreSQL, Tailwind CSS, and CI/CD pipelines. Having experience solving, debugging, and deploying native cloud applications. Looking for a challenging role to contribute innovative solutions and drive impact in modern web development."
-            textColors={["white"]}
-            className="text-white font-sans font-normal italic text-base/6 lg:text-[35px]/snug text-justify tracking-tighter overflow-hidden"
-            typingSpeed={5}
-          />
-        </div>
       </div>
 
-      <div className="overflow-hidden py-4 flex bg-orange-100/[0.2] mb-10">
+      <div className="overflow-hidden py-4 flex bg-neutral-100">
         <motion.div
           className="flex gap-0 whitespace-nowrap"
           animate={{ x: ["0%", "-50%"] }} // Moves half-way, loops infinitely
@@ -159,23 +200,12 @@ function About() {
                 words.map((word, i) => (
                   <span
                     key={`${i}-${loopIndex}`}
-                    className="text-5xl lg:text-8xl text-orange-500 font-extrabold uppercase font-serif flex items-center justify-center"
+                    className="text-5xl lg:text-5xl text-black font-extrabold uppercase font-serif flex items-center justify-center"
                   >
-                    <span>{word}</span>
+                    <span className="px-2">{word}</span>
                     <span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="4"
-                        stroke="currentColor"
-                        className="size-10"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M5 12h14"
-                        />
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
                       </svg>
                     </span>
                   </span>

@@ -5,6 +5,7 @@ import Image from "next/image";
 
 import { BentoGrid, BentoGridItem } from "./aceternity/BentoGrid";
 import Marquee from "./Marquee";
+import { playSfx } from "@/lib/Sound";
 
 export default function TechStack() {
   return (
@@ -27,14 +28,21 @@ export default function TechStack() {
             // ease: [0.4, 0.0, 0.2, 1],
             ease: "easeInOut"
           }}
-          className="text-white max-w-sm translate-x-6 hidden lg:block"
+          onAnimationStart={() => {
+            if (!true) return;
+
+            setTimeout(() => {
+              playSfx("addToFav");
+            }, 1000); // tweak for perfect sync
+          }}
+          className="max-w-sm translate-x-6 hidden lg:block"
         >
           {Array(10)
             .fill(null)
             .map((_, i) => (
               <p
                 key={i}
-                className={`text-5xl/tight ${i % 2 == 0 ? "rotate-2" : "-rotate-2"} font-extrabold text-white`}
+                className={`text-5xl/tight ${i % 2 == 0 ? "rotate-2" : "-rotate-2"} font-extrabold PrmText`}
               >
                 TECHSTACK
               </p>
@@ -71,14 +79,14 @@ export default function TechStack() {
             ease: "easeInOut"
 
           }}
-          className="text-black max-w-sm translate-x-6 hidden lg:block"
+          className="max-w-sm translate-x-6 hidden lg:block"
         >
           {Array(10)
             .fill(null)
             .map((_, i) => (
               <p
                 key={i}
-                className={`text-5xl/tight ${i % 2 == 0 ? "-rotate-2" : "rotate-2"} font-extrabold text-white`}
+                className={`text-5xl/tight ${i % 2 == 0 ? "-rotate-2" : "rotate-2"} font-extrabold PrmText`}
               >
                 TECHSTACK
               </p>
@@ -135,7 +143,7 @@ const SkeletonOne = () => {
         {!isHovered ? (
           <div className="text-3xl lg:text-5xl text-white font-bold font-mono">
             {" "}
-            FrontEnd{" "}
+            Frontend{" "}
           </div>
         ) : (
           <Marquee Photo={FrontEnd} />
@@ -145,7 +153,7 @@ const SkeletonOne = () => {
         {!isHovered ? (
           <div className="text-3xl lg:text-5xl text-white font-bold font-mono">
             {" "}
-            BackEnd
+            Backend
           </div>
         ) : (
           <Marquee Photo={BackEnd} />
@@ -258,7 +266,7 @@ const items = [
   {
     title: "FAST, RELIABLE, GLOBALLY USED, SECURE TECH",
     description: (
-      <p className="text-sm text-black/60">All the TECHNOLOGY you name it I do it.</p>
+      <p className="text-sm text-black/60">all the TECHNOLOGY you name it, I DO IT.</p>
     ),
     header: <SkeletonTwo />,
     className: "col-span-3",

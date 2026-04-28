@@ -123,8 +123,8 @@ function Contact() {
         }
         successChild={
           <PopoverFormSuccess
-            title="Feedback Received"
-            description="Thank you for supporting our project!"
+            title="Mail Received"
+            description="Thank you for reaching out!"
           />
         }
       />

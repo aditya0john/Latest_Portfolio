@@ -11,6 +11,7 @@ import CardSwap, { Card } from "@/components/ReactBits/CardSwap";
 import Image from "next/image";
 import Link from "next/link";
 import Projects from "@/components/Projects";
+import About from "@/components/About";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<null | string>(null);
@@ -73,22 +74,22 @@ export default function Home() {
           sectionsRef.current[0] = el; // ✅ Assign the element
         }}
         data-section="hero"
-        className="h-screen snap-start SecColor"
+        className="h-screen snap-start bg-gradient-to-b from-neutral-100 to-neutral-300"
       >
         {activeSection === "hero" && <Hero />}
       </section>
 
       {/* About Section */}
-      {/* <section
+      <section
         id="About"
         ref={(el) => {
           sectionsRef.current[1] = el; // ✅ Assign the element
         }}
         data-section="about"
-        className="snap-start SecColor h-screen flex items-start lg:items-center justify-center relative"
+        className="snap-start bg-gradient-to-b from-neutral-100 to-neutral-300 h-screen flex items-start lg:items-center justify-center relative"
       >
         {activeSection === "about" && <About />}
-      </section> */}
+      </section>
 
       {/* TechStack Section */}
       <section
@@ -97,7 +98,7 @@ export default function Home() {
           sectionsRef.current[2] = el; // ✅ Assign the element
         }}
         data-section="techstack"
-        className="h-screen SecColor snap-start flex items-center justify-center"
+        className="h-screen bg-gradient-to-b from-neutral-300 to-neutral-100 snap-start flex items-center justify-center"
       >
         {activeSection === "techstack" && <TechStack />}
       </section>
@@ -109,7 +110,7 @@ export default function Home() {
           sectionsRef.current[3] = el; // ✅ Assign the element
         }}
         data-section="projects"
-        className="snap-start SecColor h-screen flex items-center justify-center relative overflow-hidden"
+        className="snap-start bg-gradient-to-b from-neutral-100 to-neutral-300 h-screen flex items-center justify-center relative overflow-hidden"
       >
         {activeSection === "projects" && (
           <motion.div

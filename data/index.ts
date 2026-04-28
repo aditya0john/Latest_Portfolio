@@ -1,3 +1,5 @@
+import { time } from "console";
+
 export const svgs = [
   {
     src: "/react native.png",
@@ -40,6 +42,8 @@ export const projects = [
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
     github: "https://github.com/aditya0john/VERSUS",
     link: "https://versus-code.vercel.app/",
+    time: "v1.0 Jan 2024 - latest v2.0 2025",
+    type:["Full Stack", "Web App"]
   },
   {
     id: 2,
@@ -49,6 +53,8 @@ export const projects = [
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg"],
     github: "https://github.com/aditya0john/KandanBoard",
     link: "/",
+    time:"v1.0 Nov 2024",
+    type:["Full Stack", "Web App"]
   },
   {
     id: 3,
@@ -58,6 +64,8 @@ export const projects = [
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
     github: "https://github.com/aditya0john/Flappy-Bird",
     link: "",
+    time:"v1.0 March 2024",
+    type:["React Native", "Mobile App", "Game"]
   },
   {
     id: 4,
@@ -67,6 +75,8 @@ export const projects = [
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
     github: "https://github.com/aditya0john/poseidonplate",
     link: "https://poseidonplate.vercel.app/",
+    time:"v1.0 Nov 2024",
+    type:["Full Stack", "Web App"]
   },
   {
     id: 5,
@@ -76,5 +86,7 @@ export const projects = [
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
     github: "/",
     link: "/",
+    time :"latest version 2026",
+    type:["Full Stack", "Web App"]
   },
 ];

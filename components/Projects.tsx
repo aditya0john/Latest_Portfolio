@@ -42,30 +42,41 @@ function Projects() {
   return (
     <div className="h-screen flex flex-col justify-center md:grid md:grid-cols-[40%_60%]">
       <div className="p-2 flex flex-col gap-4 justify-center -translate-y-20">
-        <span className={`text-3xl/tight md:text-7xl/tight font-extrabold text-white uppercase`}>
+        <span className={`text-3xl/tight md:text-7xl/tight font-extrabold text-black uppercase`}>
           Projects
         </span>
         {projects.filter((e) => e.title == activeSection).map((data) => (
           <div key={data.id} className="flex flex-col max-w-xs md:max-w-lg px-4">
-            <span className={`text-lg/tight md:text-2xl/tight font-extrabold text-white uppercase`}>
-              {data.id}.) {data.title}
+            <span className={`text-lg/tight md:text-2xl/tight font-extrabold PrmText uppercase`}>
+              {data.id}.{data.title}
             </span>
 
             <TextType
+              showCursor
               text={data.des}
-              textColors={["white"]}
-              className="font-mono text-justify overflow-hidden tracking-tighter text-xs md:text-xl lg:text-4xl"
+              textColors={["gray"]}
+              className="font-sans text-justify overflow-hidden text-xs md:text-xl lg:text-xl"
               typingSpeed={5}
             />
 
+            <div className="flex items-center justify-between">
+              <span style={{ color: "gray" }} className="mt-10 text-sm">Dated : {data.time}</span>
 
+              <span className="flex items-center gap-2 mt-10">
+                {data.type.map((type, i) => (
+                  <span key={i} style={{color:"gray"}} className="text-sm px-2 py-1 rounded-full border border-black/20">
+                    {type}
+                  </span>
+                ))}
+              </span>
+            </div>
           </div>
         ))}
       </div>
 
       <div
         ref={containerRef}
-        className="rounded-l-[42] p-4 flex md:flex-col gap-6 overflow-x-scroll overflow-y-hidden snap-both md:overflow-x-hidden md:overflow-y-scroll snap-mandatory">
+        className="rounded-[42] p-2 flex md:flex-col gap-6 overflow-x-scroll overflow-y-hidden snap-both md:overflow-x-hidden md:overflow-y-scroll snap-mandatory">
         {projects.map((project) => (
           <section
             key={project.id}
@@ -80,9 +91,8 @@ function Projects() {
               src={project.img}
               height={200}
               width={200}
-              className="h-[300px] w-full md:h-[700px] lg:[600px] md:w-[100%] object-cover rounded-[32]" />
-
-            <span className="px-2 rounded-2xl flex items-center gap-4 absolute bottom-0 left-0 bg-white">
+              className="h-[300px] w-full md:h-[700px] lg:h-[550px] md:w-[100%] object-cover rounded-[32]" />
+            <span className="bg-white p-2 rounded-bl-[32] rounded-tr-[32] flex items-center gap-4 absolute bottom-0 left-0 ">
               <Link target="_blank" href={project.github}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
