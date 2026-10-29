@@ -33,7 +33,7 @@ export function PopoverForm({
   return (
     <div
       key={title}
-      className="flex min-h-[300px] w-full items-center justify-center relative"
+      className="flex min-h-[300px] w-full items-center justify-center"
     >
       <motion.button
         layoutId={`${title}-wrapper`}

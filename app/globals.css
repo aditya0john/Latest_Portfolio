@@ -16,17 +16,21 @@
 
 ::-webkit-scrollbar {
   width: 6px;
-  border-radius: 50%;
-  background-color: #f5f5f5;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: rgb(255, 0, 0);
+  border-radius: 50px;
 }
 
 .HindiFont {
   font-family: var(--font-inter), sans-serif;
 }
+
+/* body {
+  cursor: url('/images/CatCursor.png'), auto;
+} */
+
 
 .BgImg{
   background-image: url("../public/images/MyPhoto.png");
@@ -35,12 +39,19 @@
   background-repeat: no-repeat;
 }
 
+.BGImg{
+  background-image: url("../public/images/FLOWER.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .PrmText {
-  color: #222222 !important;
+  color: #ff0000 !important;
 }
 
 .SecText {
-  color: #190d05 !important;
+  color: #ff8e2c !important;
 }
 
 .PrmColor {
@@ -259,7 +270,7 @@
 .wrapper {
   display: inline-flex;
   list-style: none;
-  height: 120px;
+  height: 80px;
   width: 100%;
   font-family: "Poppins", sans-serif;
   justify-content: center;
@@ -267,11 +278,11 @@
 
 .wrapper .icon {
   position: relative;
-  background: #000;
+  background: #fff;
   border-radius: 50%;
   margin: 10px;
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   font-size: 18px;
   display: flex;
   justify-content: center;

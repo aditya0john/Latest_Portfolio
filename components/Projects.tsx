@@ -3,6 +3,7 @@ import Image from "next/image"
 import { useEffect, useRef, useState } from "react";
 import TextType from "./ReactBits/TextType";
 import Link from "next/link";
+import HoverExpandCarousel from "./SkipperUI/HoverExpandCarousel";
 
 function Projects() {
   const [activeSection, setActiveSection] = useState<null | string>(null);
@@ -40,32 +41,48 @@ function Projects() {
 
 
   return (
-    <div className="h-screen flex flex-col justify-center md:grid md:grid-cols-[40%_60%]">
+    <div className="bg-black h-screen flex flex-col justify-center md:grid md:grid-cols-[40%_60%] p-10">
       <div className="p-2 flex flex-col gap-4 justify-center -translate-y-20">
-        <span className={`text-3xl/tight md:text-7xl/tight font-extrabold text-black uppercase`}>
-          Projects
-        </span>
         {projects.filter((e) => e.title == activeSection).map((data) => (
-          <div key={data.id} className="flex flex-col max-w-xs md:max-w-lg px-4">
-            <span className={`text-lg/tight md:text-2xl/tight font-extrabold PrmText uppercase`}>
-              {data.id}.{data.title}
-            </span>
+          <div key={data.id} className="min-h-[50dvh] flex flex-col items-start justify-around max-w-xs md:max-w-lg px-4">
+            <TextType
+              showCursor
+              text={`${data.id}. ${data.title}`}
+              textColors={["red"]}
+              className="ext-lg/tight md:text-2xl/tight font-extrabold uppercase"
+              typingSpeed={20}
+            />
 
             <TextType
               showCursor
               text={data.des}
               textColors={["gray"]}
-              className="font-sans text-justify overflow-hidden text-xs md:text-xl lg:text-xl"
-              typingSpeed={5}
+              className="font-mono overflow-hidden text-xs md:text-xl lg:text-xl tracking-tighter"
+              typingSpeed={10}
+              initialDelay={800}
             />
 
-            <div className="flex items-center justify-between">
-              <span style={{ color: "gray" }} className="mt-10 text-sm">Dated : {data.time}</span>
+            <div className="flex flex-col gap-6 items-start justify-center">
+              <TextType
+                showCursor
+                text={`DATED : ${data.time}`}
+                textColors={["gray"]}
+                className="font-sans text-justify overflow-hidden text-sm"
+                typingSpeed={20}
+                initialDelay={1400}
+              />
 
-              <span className="flex items-center gap-2 mt-10">
+              <span className="flex items-center gap-2">
                 {data.type.map((type, i) => (
-                  <span key={i} style={{color:"gray"}} className="text-sm px-2 py-1 rounded-full border border-black/20">
-                    {type}
+                  <span key={i}>
+                    <TextType
+                      showCursor
+                      text={type}
+                      textColors={["gray"]}
+                      className="font-sans text-justify overflow-hidden text-sm"
+                      typingSpeed={20}
+                      initialDelay={2400}
+                    />
                   </span>
                 ))}
               </span>
@@ -76,7 +93,7 @@ function Projects() {
 
       <div
         ref={containerRef}
-        className="rounded-[42] p-2 flex md:flex-col gap-6 overflow-x-scroll overflow-y-hidden snap-both md:overflow-x-hidden md:overflow-y-scroll snap-mandatory">
+        className="rounded-[32] flex md:flex-col gap-6 overflow-x-scroll no-scrollbar overflow-y-hidden snap-both md:overflow-x-hidden md:overflow-y-scroll snap-mandatory">
         {projects.map((project) => (
           <section
             key={project.id}
@@ -84,14 +101,21 @@ function Projects() {
               sectionsRef.current[project.id] = el; // ✅ Assign the element
             }}
             data-section={project.title}
-            className="md:h-screen min-w-[80%] snap-center flex items-center justify-center relative"
+            className="h-screen snap-center items-center justify-between relative"
           >
-            <Image
+            {/* <Image
               alt="porject image"
               src={project.img}
               height={200}
               width={200}
-              className="h-[300px] w-full md:h-[700px] lg:h-[550px] md:w-[100%] object-cover rounded-[32]" />
+              className="h-[60dvh] w-[100vw] object-cover rounded-[32]" /> */}
+
+            <HoverExpandCarousel
+              images={project.img}
+              height="60dvh"
+              className=" object-cover rounded-[32]"
+            />
+
             <span className="bg-white p-2 rounded-bl-[32] rounded-tr-[32] flex items-center gap-4 absolute bottom-0 left-0 ">
               <Link target="_blank" href={project.github}>
                 <svg

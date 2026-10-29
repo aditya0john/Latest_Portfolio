@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -9,7 +9,7 @@ import { playSfx } from "@/lib/Sound";
 
 export default function TechStack() {
   return (
-    <div className="h-full w-full flex items-center justify-center overflow-hidden">
+    <div className="h-full w-full bg-rose-200 flex items-center justify-center overflow-hidden">
       <span className="flex">
         <motion.div
           initial={{
@@ -42,7 +42,7 @@ export default function TechStack() {
             .map((_, i) => (
               <p
                 key={i}
-                className={`text-5xl/tight ${i % 2 == 0 ? "rotate-2" : "-rotate-2"} font-extrabold PrmText`}
+                className={`text-5xl/tight ${i % 2 == 0 ? "rotate-2" : "-rotate-2"} font-extrabold text-orange-600`}
               >
                 TECHSTACK
               </p>
@@ -133,6 +133,7 @@ const SkeletonOne = () => {
 
   return (
     <div
+    id="TechStack"
       onTouchStart={() => setIsHovered(true)}
       onTouchEnd={() => setIsHovered(false)}
       onMouseEnter={() => setIsHovered(true)}

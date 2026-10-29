@@ -1,29 +1,60 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import Hero from "@/components/Hero";
 import TechStack from "@/components/TechStack";
 import Contact from "@/components/Contact";
-import { projects } from "@/data";
-import CardSwap, { Card } from "@/components/ReactBits/CardSwap";
-import Image from "next/image";
-import Link from "next/link";
 import Projects from "@/components/Projects";
 import About from "@/components/About";
+import {
+  Navbar,
+  NavbarLogo,
+  NavBody,
+  NavItems,
+} from "@/components/aceternity/resizable-navbar";
+
+const sections = [
+  { name: "ME", id: "TopPage" },
+  { name: "About", id: "About" },
+  { name: "Techstack", id: "TechStack" },
+  { name: "Projects", id: "Projects" },
+  { name: "Contact", id: "Contact" },
+];
 
 export default function Home() {
+  const [activeIndex, setActiveIndex] = useState(0);
   const [activeSection, setActiveSection] = useState<null | string>(null);
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
   const [isloading, setIsLoading] = useState(true);
-  const [itemData, setItemData] = useState(1);
-  const [count, setCount] = useState(0);
 
-  const words = useMemo(
-    () => ["W E L C O M E", "I AM", "Aditya John", " "],
-    []
-  );
+  const navItems = sections.map((section) => ({
+    name: section.name,
+    link: `#${section.id}`,
+  }));
+
+  const navigateTo = (id: string) => {
+    const index = sections.findIndex(
+      (section) => section.id === id
+    );
+
+    if (index === -1) return;
+
+    setActiveIndex(index);
+    window.history.replaceState(null, "", `#${id}`);
+  };
+
+  const goToSection = (id: string) => {
+    const index = sections.findIndex(
+      (section) => section.id === id
+    );
+
+    if (index !== -1) {
+      setActiveIndex(index);
+      window.history.replaceState(null, "", `#${id}`);
+    }
+  };
 
   useEffect(() => {
     setTimeout(() => {
@@ -31,14 +62,6 @@ export default function Home() {
     }, 1000);
   }, []);
 
-  useEffect(() => {
-    if (count < words.length) {
-      const interval = setInterval(() => {
-        setCount((prev) => prev + 1);
-      }, 2400);
-      return () => clearInterval(interval);
-    }
-  }, [count, words.length]);
 
   useEffect(() => {
     if (isloading) return; // Prevent observer from initializing while loading
@@ -65,75 +88,79 @@ export default function Home() {
   }, [isloading]); // Only runs once when loading completes
 
 
+
   return (
-    <div className="h-screen w-full overflow-x-hidden overflow-y-auto snap-y snap-mandatory select-none background">
-      {/* Hero Section */}
-      <section
-        id="TopPage"
-        ref={(el) => {
-          sectionsRef.current[0] = el; // ✅ Assign the element
-        }}
-        data-section="hero"
-        className="h-screen snap-start bg-gradient-to-b from-neutral-100 to-neutral-300"
-      >
-        {activeSection === "hero" && <Hero />}
-      </section>
+    <main className="relative h-dvh w-full overflow-hidden">
+      {/* Fixed navbar */}
+      <div className="fixed inset-x-0 top-0 z-50">
+        <Navbar>
+          <NavBody>
+            <NavbarLogo />
 
-      {/* About Section */}
-      <section
-        id="About"
-        ref={(el) => {
-          sectionsRef.current[1] = el; // ✅ Assign the element
-        }}
-        data-section="about"
-        className="snap-start bg-gradient-to-b from-neutral-100 to-neutral-300 h-screen flex items-start lg:items-center justify-center relative"
-      >
-        {activeSection === "about" && <About />}
-      </section>
+            <NavItems
+              items={navItems.map((item) => ({
+                ...item,
+                // Keep the navbar links connected to
+                // the horizontal navigation.
+                onClick: () => goToSection(
+                  item.link.slice(1)
+                ),
+              }))}
+              onItemClick={navigateTo}
+            />
+          </NavBody>
+        </Navbar>
+      </div>
 
-      {/* TechStack Section */}
-      <section
-        id="TechStack"
-        ref={(el) => {
-          sectionsRef.current[2] = el; // ✅ Assign the element
-        }}
-        data-section="techstack"
-        className="h-screen bg-gradient-to-b from-neutral-300 to-neutral-100 snap-start flex items-center justify-center"
-      >
-        {activeSection === "techstack" && <TechStack />}
-      </section>
 
-      {/* Projects Section */}
-      <section
-        id="Projects"
-        ref={(el) => {
-          sectionsRef.current[3] = el; // ✅ Assign the element
+      {/* Horizontal page track */}
+      <motion.div
+        className="flex h-full w-full"
+        animate={{
+          x: `${-activeIndex * 100}vw`,
         }}
-        data-section="projects"
-        className="snap-start bg-gradient-to-b from-neutral-100 to-neutral-300 h-screen flex items-center justify-center relative overflow-hidden"
+        transition={{
+          duration: 0.9,
+          ease: [0.22, 1, 0.36, 1],
+        }}
       >
-        {activeSection === "projects" && (
-          <motion.div
-            initial={{ opacity: 0, y: 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.4, delay: 0.3 }}
-            className="w-full h-full flex flex-col justify-center"
+        {sections.map((section, index) => (
+          <motion.section
+            key={section.id}
+            id={section.id}
+            ref={(el) => {
+              sectionsRef.current[index] = el; // ✅ Assign the element
+            }}
+            data-section={section.name}
+            className="relative h-dvh w-screen shrink-0 overflow-hidden"
+            animate={{
+              borderRadius: activeIndex === index ? "0px" : "36px",
+              scale: activeIndex === index ? 1 : 0.94,
+              y: activeIndex === index ? 0 : 12,
+            }}
+            style={{
+              boxShadow:
+                activeIndex === index
+                  ? "0 0 0 rgba(0,0,0,0)"
+                  : "0 16px 60px rgba(0,0,0,0.25)",
+            }}
+            transition={{
+              duration: 0.9,
+              ease: [0.22, 1, 0.36, 1],
+            }}
           >
-            {activeSection === "projects" && <Projects />}
-          </motion.div>
-        )}
-      </section>
-
-      <section
-        id="Contact"
-        ref={(el) => {
-          sectionsRef.current[4] = el; // ✅ Assign the element
-        }}
-        data-section="contact"
-        className="snap-start SecColor h-screen"
-      >
-        {activeSection === "contact" && <Contact />}
-      </section>
-    </div>
+            {activeSection === section.name && (
+              <>
+                {section.id === "TopPage" && <Hero />}
+                {section.id === "About" && <About />}
+                {section.id === "TechStack" && <TechStack />}
+                {section.id === "Projects" && <Projects />}
+                {section.id === "Contact" && <Contact />}
+              </>
+            )}
+          </motion.section>
+        ))}
+      </motion.div>
+    </main>
   );
 }

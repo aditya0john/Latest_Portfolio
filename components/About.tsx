@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import RotatingText from "./ReactBits/RotatingText";
@@ -16,10 +15,17 @@ function About() {
   ];
 
   const experience = [
-    "With 4+ years of experience in the field, I have a strong background in building scalable web applications and optimizing performance. I am passionate about creating seamless user experiences and delivering high-quality solutions that drive impact in modern web development.",
     "A proven track record of successfully solving complex problems, debugging issues, and deploying native cloud applications. I am always eager to take on new challenges and contribute innovative solutions to the ever-evolving world of web development.",
     "2+ years in React Native, 3+ years in Next.js, and 3+ years in Node.js and TypeScript, I have a strong foundation in building scalable web applications and optimizing performance. I am passionate about creating seamless user experiences and delivering high-quality solutions that drive impact in modern web development.",
   ]
+
+  const TechStack = {
+    "React Native": 4,
+    "Next.js": 4,
+    "Node.js": 3,
+    "TypeScript": 3,
+    "PostgreSQL": 3,
+  };
 
   const download = () => {
     const link = document.createElement("a");
@@ -31,29 +37,29 @@ function About() {
   };
 
   return (
-    <div className="h-full flex flex-col lg:gap-4 items-center justify-between overflow-hidden">
-      <div className="w-screen p-10 flex items-start justify-around">
-        <div className="flex flex-col justify-between h-full">
-          <div className="bg-white/60 rounded-3xl flex flex-col items-start justify-center gap-6 p-4">
-            <span className="PrmText text-5xl font-medium">About Me</span>
+    <div id="About" className="h-full bg-gradient-to-b from-neutral-100 to-neutral-200 flex flex-col lg:gap-4 items-center justify-between overflow-hidden">
+      <div className="w-screen p-10 grid grid-cols-[4fr_4fr_0.2fr] items-start justify-center">
+        <div className="grid grid-rows-2 items-center h-full">
+          <div className="flex flex-col items-start justify-center gap-4">
+            <span className="PrmText text-5xl font-medium uppercase">About Me</span>
             <TextType
               text={"Results-driven Full-Stack Developer with expertise in React, React Native, Next.js, Node.js, and TypeScript. Passionate about building scalable web applications with optimized performance and seamless UI/UX. Strong back ground in MongoDB, PostgreSQL, Tailwind CSS, and CI/CD pipelines. Having experience solving, debugging, and deploying native cloud applications. Looking for a challenging role to contribute innovative solutions and drive impact in modern web development."}
-              className="text-wrap max-w-lg text-xs md:text-md lg:text-xl"
+              className="font-mono text-justify max-w-lg text-xs md:text-md lg:text-[1rem]"
               textColors={["gray"]}
-              typingSpeed={5} />
+              typingSpeed={10} />
           </div>
 
-          <div className="bg-white/60 rounded-3xl flex flex-col items-start justify-center gap-4 p-4">
-            <span className="PrmText text-4xl font-medium">Work Ethic</span>
+          <div className="flex flex-col items-start justify-center gap-4">
+            <span className="PrmText text-4xl font-medium uppercase">Work Ethic</span>
             <TextType
               text={"I'm highly motivated and dedicated individual with a strong work ethic. I thrive in fast-paced environments and am committed to delivering high-quality results. I am proactive, detail-oriented, and always willing to go the extra mile to ensure the success of a project. I value collaboration and believe in fostering a positive and productive work environment."}
-              className="text-wrap max-w-lg text-xs md:text-base"
+              className="font-mono text-justify max-w-lg text-xs md:text-[1rem]"
               textColors={["gray"]}
               typingSpeed={5} />
           </div>
         </div>
 
-        <div className="bg-white/60 rounded-3xl h-full flex flex-col gap-4 items-center justify-between p-4 lg:max-w-4xl scale-90 lg:scale-100">
+        <div className="h-full flex flex-col gap-4 items-center justify-center p-4 lg:max-w-4xl scale-90 lg:scale-100">
           <Image
             alt="My Image"
             src={"/images/ME3.jpg"}
@@ -63,48 +69,75 @@ function About() {
           />
 
           <span className="PrmText text-4xl lg:text-3xl flex flex-row text-center items-center justify-center gap-2 font-extrabold ">
-            <span>Build</span>
+            <span>BUILD</span>
             <RotatingText
               texts={words}
-              mainClassName="px-2 sm:px-2 md:px-2 bg-neutral-400 text-white rounded-xl text-black overflow-hidden py-0.5 sm:py-1 justify-center rounded-lg uppercase"
+              mainClassName="text-blue-900 rounded-xl text-black overflow-hidden py-0.5 sm:py-1 justify-center rounded-lg uppercase"
               staggerFrom={"last"}
               initial={{ y: "100%" }}
-              animate={{ y: -4 }}
+              animate={{ y: 0 }}
               exit={{ y: "-120%" }}
               staggerDuration={0.025}
               splitLevelClassName="overflow-hidden"
               transition={{ type: "spring", damping: 30, stiffness: 400 }}
               rotationInterval={2000}
             />
-            <span>Together</span>
+            <span>TOGETHER</span>
           </span>
 
-          <div className="flex flex-col gap-4">
-            {experience.map((exp, i) => (
-              <span key={i} className="flex items-start justify-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="gray" className="size-3 translate-y-1.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
-                </svg>
-                <p style={{ color: "gray" }} className="text-justify text-sm lg:text-base max-w-2xl tracking-tight">
-                  {exp}
-                </p>
-              </span>
-            ))}
+          <div className="gap-4 items-start justify-center">
+            <div className="flex flex-col items-center justify-center">
+              <span className="PrmText text-4xl font-medium uppercase">EXPERIENCE <span className="text-gray-500 text-sm lowercase">(*out of 5yrs)</span></span>
+              <div className="space-y-2 p-4 grid grid-cols-2 gap-x-4 items-center justify-center">
+                {Object.entries(TechStack).map(([techName, years]) => (
+                  <div key={techName} className="">
+                    {/* Skill name and experience */}
+                    <div className="grid grid-cols-2 items-center justify-between gap-4">
+                      <span className="text-blue-900 text-lg font-light">{techName}</span>
+                      <div className="h-2 w-full overflow-hidden rounded-full bg-neutral-300">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{
+                            width: `${(years / 5) * 100}%`,
+                          }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1, ease: "easeOut" }}
+                          className="h-full rounded-full bg-blue-900"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-4">
+              {experience.map((exp, i) => (
+                <span key={i} className="flex items-start justify-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="gray" className="size-3 translate-y-1.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                  </svg>
+                  <p style={{ color: "gray" }} className="font-mono text-justify text-sm lg:text-md max-w-2xl tracking-tight ">
+                    {exp}
+                  </p>
+                </span>
+              ))}
+            </div>
           </div>
         </div>
 
-        <span className="flex lg:flex-col gap-4 mt-6">
+        <span className="flex lg:flex-col gap-4">
           <button
             onTouchStart={download}
             onClick={download}
-            className="border-2 rounded-lg p-2 bg-white/[0.4] font-bold"
+            className="border-2 border-red-600 rounded-lg p-2 font-bold"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth="1.5"
-              stroke="black"
+              stroke="red"
               className="size-7"
             >
               <path
@@ -118,7 +151,7 @@ function About() {
           <Link
             target="_blank"
             href={"https://github.com/aditya0john"}
-            className="border-2 rounded-lg text-xs p-2 bg-white/[0.4] font-bold"
+            className="border-2 border-red-600 rounded-lg text-xs p-2 font-bold"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -136,8 +169,8 @@ function About() {
                 y2="23.508"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop offset="0" stopColor="#4c4c4c"></stop>
-                <stop offset="1" stopColor="#343434"></stop>
+                <stop offset="0" stopColor="#fff"></stop>
+                <stop offset="1" stopColor="#fff"></stop>
               </linearGradient>
               <path
                 fill="url(#rL2wppHyxHVbobwndsT6Ca_AZOZNnY73haj_gr1)"
@@ -152,7 +185,7 @@ function About() {
                 opacity=".07"
               ></path>
               <path
-                fill="#fff"
+                fill="#ff0000"
                 d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"
               ></path>
             </svg>
@@ -160,14 +193,14 @@ function About() {
 
           <Link
             href="mailto:johnaditya46@gmail.com?body=My custom mail body"
-            className="border-2 rounded-lg p-2 bg-white/[0.4] font-bold"
+            className="border-2 border-red-600 rounded-lg p-2 font-bold"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth="1.5"
-              stroke="black"
+              stroke="red"
               className="size-7"
             >
               <path
@@ -180,7 +213,7 @@ function About() {
         </span>
       </div>
 
-      <div className="overflow-hidden py-4 flex bg-neutral-100">
+      <div className="overflow-hidden">
         <motion.div
           className="flex gap-0 whitespace-nowrap"
           animate={{ x: ["0%", "-50%"] }} // Moves half-way, loops infinitely
@@ -200,7 +233,7 @@ function About() {
                 words.map((word, i) => (
                   <span
                     key={`${i}-${loopIndex}`}
-                    className="text-5xl lg:text-5xl text-black font-extrabold uppercase font-serif flex items-center justify-center"
+                    className="text-5xl lg:text-5xl text-red-600 font-extrabold uppercase font-serif flex items-center justify-center"
                   >
                     <span className="px-2">{word}</span>
                     <span>
