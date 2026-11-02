@@ -32,17 +32,36 @@ export const svgs = [
   },
 ];
 
-export const projects = [
+
+type CarouselImage = {
+  src: string;
+  alt?: string;
+  orientation?: "desktop" | "mobile";
+};
+
+type Project = {
+  id: number;
+  title: string;
+  des: string;
+  img: CarouselImage[];
+  iconLists: string[];
+  github: string;
+  link: string;
+  time: string;
+  type: string[];
+};
+
+export const projects: Project[] = [
   {
     id: 1,
     title: "VERSUS (E-Learning Website)",
     des: "Learn and grow together with VERSUS a platform that turly makes you wish you were learning in a way that really teaches you.",
     img: [
-      { src: "/projects/VERSUS/HERO.png", alt: "Landing Page" },
-      { src: "/projects/VERSUS/MAIN MENU.png", alt: "Main Menu" },
-      { src: "/projects/VERSUS/COURSES.png", alt: "Courses Page" },
-      { src: "/projects/VERSUS/CHAPTERS.png", alt: "Chapters" },
-      { src: "/projects/VERSUS/CONTACT.png", alt: "Contact Page" },
+      { src: "/projects/VERSUS/HERO.png", alt: "Landing Page", orientation: "desktop" },
+      { src: "/projects/VERSUS/MAIN MENU.png", alt: "Main Menu", orientation: "desktop" },
+      { src: "/projects/VERSUS/COURSES.png", alt: "Courses Page", orientation: "desktop" },
+      { src: "/projects/VERSUS/CHAPTERS.png", alt: "Chapters", orientation: "desktop" },
+      { src: "/projects/VERSUS/CONTACT.png", alt: "Contact Page", orientation: "desktop" },
     ],
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
     github: "https://github.com/aditya0john/VERSUS",
@@ -52,10 +71,27 @@ export const projects = [
   },
   {
     id: 2,
+    title: "Hoppit (React Native)",
+    des: "Welcome to your personal KANBAN BOARD, where you can manage your tasks and projects with ease.",
+    img: [
+      { src: "/projects/HOPPIT/HOPPIT MENU.jpg", alt: "MENU", orientation: "mobile" },
+      { src: "/projects/HOPPIT/HOPPIT cart.PNG", alt: "Cart", orientation: "mobile" },
+      { src: "/projects/HOPPIT/HOPPIT groceryModal.jpg", alt: "Grocery Modal", orientation: "mobile" },
+      { src: "/projects/HOPPIT/HOPPIT items.jpg", alt: "Items", orientation: "desktop" },
+      { src: "/projects/HOPPIT/HOPPIT orders.jpg", alt: "Orders", orientation: "desktop" },
+    ],
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg"],
+    github: "https://github.com/aditya0john/KandanBoard",
+    link: "/",
+    time: "v1.0 Nov 2024",
+    type: ["Full Stack", "React Native", "Mobile App"]
+  },
+  {
+    id: 3,
     title: "Kanban Board (Full Stack)",
     des: "Welcome to your personal KANBAN BOARD, where you can manage your tasks and projects with ease.",
     img: [
-      { src: "/p5.png", alt: "page 1" }
+      { src: "/p5.png", alt: "page 1", orientation: "desktop" }
     ],
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg"],
     github: "https://github.com/aditya0john/KandanBoard",
@@ -64,11 +100,11 @@ export const projects = [
     type: ["Full Stack", "Web App"]
   },
   {
-    id: 3,
+    id: 4,
     title: "Flappy Bird (Mobile App)",
     des: "Play as FLAPPY on an adventure against obstacles.",
     img: [
-      { src: "/p2.jpg", alt: "page 1" }
+      { src: "/p2.jpg", alt: "page 1", orientation: "desktop" }
     ],
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
     github: "https://github.com/aditya0john/Flappy-Bird",
@@ -77,14 +113,14 @@ export const projects = [
     type: ["React Native", "Mobile App", "Game"]
   },
   {
-    id: 4,
+    id: 5,
     title: "LAZIZ PIZZA : (Restraunt website)",
     des: "Laziz Pizza™ is known for its Taste & Variety of Pizza. Laziz Pizza has a wide product portfolio of pizza to savor customers taste buds.",
     img: [
-      { src: "/projects/LAZIZ PIZZA/Loading.png", alt: "Loading Screen" },
-      { src: "/projects/LAZIZ PIZZA/Landing.png", alt: "Landing Page" },
-      { src: "/projects/LAZIZ PIZZA/Menu.png", alt: "Menu" },
-      { src: "/projects/LAZIZ PIZZA/Cart.png", alt: "Cart" }
+      { src: "/projects/LAZIZ PIZZA/Loading.png", alt: "Loading Screen", orientation: "desktop" },
+      { src: "/projects/LAZIZ PIZZA/Landing.png", alt: "Landing Page", orientation: "desktop" },
+      { src: "/projects/LAZIZ PIZZA/Menu.png", alt: "Menu", orientation: "desktop" },
+      { src: "/projects/LAZIZ PIZZA/Cart.png", alt: "Cart", orientation: "desktop" }
     ],
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
     github: "https://github.com/aditya0john/poseidonplate",
@@ -93,11 +129,11 @@ export const projects = [
     type: ["Full Stack", "Web App"]
   },
   {
-    id: 5,
+    id: 6,
     title: "Personal Portfolio",
     des: "Welcome to a special place where you feel the MAGIC of being ME for the while you stay...",
     img: [
-      { src: "/Portfolio_img.png", alt: "page 1" }
+      { src: "/Portfolio_img.png", alt: "page 1", orientation: "desktop" }
     ],
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
     github: "/",

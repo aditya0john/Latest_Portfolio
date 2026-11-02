@@ -15,7 +15,7 @@ function Hero() {
   }, []);
 
   return (
-    <div id="TopPage" className={`bg-black brightness-110 h-screen p-2 md:p-0 flex flex-col items-center justify-center ${loading ? "gap-0" : "gap-4"} relative overflow-hidden`}>
+    <div id="TopPage" className={`bg-black brightness-110 h-screen p-2 md:p-0 flex flex-col items-center justify-center ${loading ? "gap-0" : "gap-4"} relative overflow-hidden select-none`}>
       <motion.div
         style={{
           aspectRatio: 1,
@@ -50,24 +50,22 @@ function Hero() {
       </motion.div>
 
       <>
-        <div className="absolute right-0 bottom-0 flex flex-col items-end justify-center">
-          <span className="text-red-600 text-xs italic font-medium uppercase z-50">Uttarakhand, India</span>
-          <span className="text-red-600 text-sm italic font-thin z-50">{ } {Today.toLocaleDateString("en-GB")}</span>
-        </div>
+        {!loading && <div className="absolute right-0 bottom-0 flex flex-col items-end justify-center p-2">
+          <span className="text-black text-xs italic font-medium uppercase z-50">Uttarakhand, India</span>
+          <span className="text-neutral-600 text-sm italic font-bold z-50">{ } {Today.toLocaleDateString("en-GB")}</span>
+        </div>}
 
         <div className="flex flex-col items-end justify-center absolute bottom-4 lg:bottom-14 md:left-4">
           {loading ?
             <span className="flex flex-col text-right justify-center">
               <TextType
                 text={"ADITYA"}
-                className="text-red-600 text-5xl md:text-6xl lg:text-[14rem] tracking-wide font-sans font-bold"
-                textColors={[loading ? 'text-red-600' : 'text-cyan-400']}
+                className="text-white text-5xl md:text-6xl lg:text-[14rem] tracking-wide font-sans font-bold"
                 initialDelay={1000}
                 typingSpeed={100} />
               <TextType
                 text={"JOHN"}
-                className="text-red-600 text-7xl md:text-8xl lg:text-[14rem] tracking-tighter lg:-translate-y-10 font-sans font-bold"
-                textColors={[loading ? 'text-red-600' : 'text-cyan-600']}
+                className="text-white text-7xl md:text-8xl lg:text-[14rem] tracking-tighter lg:-translate-y-10 font-sans font-bold"
                 initialDelay={2400}
                 typingSpeed={180}
               />
@@ -103,13 +101,13 @@ function Hero() {
         <div className="flex flex-col items-start justify-center gap-32 absolute top-10 lg:top-10 right-20">
           {!loading && <div className="flex items-center justify-center gap-20">
             <div className="flex flex-col items-end">
-              <span className="text-red-800 text-5xl font-medium">20+</span>
-              <span className="text-red-800 text-md italic -translate-y-2">projects</span>
+              <span className="text-black text-5xl font-medium">20+</span>
+              <span className="text-neutral-800 text-md italic -translate-y-2">projects</span>
             </div>
 
             <div className="flex flex-col items-end">
-              <span className="text-red-800 text-5xl font-medium">4+</span>
-              <span className="text-red-800 text-md italic -translate-y-2">apps</span>
+              <span className="text-black text-5xl font-medium">4+</span>
+              <span className="text-neutral-800 text-md italic -translate-y-2">apps</span>
             </div>
           </div>}
 
